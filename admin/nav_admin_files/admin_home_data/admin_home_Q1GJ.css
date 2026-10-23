@@ -1,0 +1,47 @@
+table {
+    position: relative;
+    float: right;
+    height: 100px;
+    top: 10px;
+    width: 100%;
+    overflow: auto;
+}
+
+th {
+    background-color: salmon;
+    border: 1px salmon;
+}
+
+.sel {
+    width: 10%;
+}
+
+.name {
+    width: 30%;
+}
+
+.teacher_acc {
+    width: 30%;
+}
+
+.pass {
+    width: 30%;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+    text-align: center;
+}
+
+.search input {
+    position: relative;
+    bottom: 480px;
+    width: 50%;
+    float:right;
+}
+
+h1{
+    position:relative;
+    top: 30px;
+}

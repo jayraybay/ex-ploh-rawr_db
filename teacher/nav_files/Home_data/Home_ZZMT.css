@@ -1,0 +1,35 @@
+table{
+    position:relative;
+    float:right;
+    height: 100px;
+    top: 10px;
+    width:100%;
+    overflow:auto;
+}
+th {
+    background-color: salmon;
+    border: 1px salmon;
+}
+tbody:hover {
+    background-color: #555555;
+    color: white;
+}
+td {
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+    text-align: center;
+}
+
+select{
+    float:left;
+    position:relative;
+    bottom: 490px;
+    width: 25%;
+}
+
+.search input{
+    position:relative;
+    bottom: 492px;
+    left: 15px;
+    width: 73%;
+}

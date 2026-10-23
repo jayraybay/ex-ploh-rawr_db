@@ -1,0 +1,62 @@
+@font-face {
+    font-family: myFont;
+    src: url(VCR_OSD_MONO_1.001.ttf);
+}
+
+* {
+    font-family: myFont;
+}
+
+h1{
+    padding: 4px 0px 0px 32px;  
+}
+
+img{
+    float: right;
+    position:relative;
+    bottom: 50px;
+    right: 80px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.name p {
+    position: relative;
+    top: 50px;
+    padding: 0px 0px 0px 80px;
+    font-size: 32px;
+    width: 50%;
+    border-radius: 25px;
+}
+
+.occ p {
+    position: relative;
+    padding: 0px 0px 0px 80px;
+    font-size: 24px;
+    top: 25px;
+    border-radius: 25px;
+}
+
+.creds p{
+    position: relative;
+    top: 100px;
+    padding: 0px 0px 0px 80px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.date p {
+    position: relative;
+    top: 80px;
+    padding: 0px 0px 0px 80px;
+    font-size: 24px;
+}
+
+button {
+    position: relative;
+    left: 100px;
+    top: 70px;
+    width: 20%;
+    height: 30px;
+    background-color: salmon;
+}

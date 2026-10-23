@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<link rel="stylesheet" href="student_acc.css" />
+
+<table>
+    <thead>
+        <tr>
+            <th class="name">username</th>
+            <th class="Sname">Name</th>
+            <th class="pass">School ID</th>
+            <th class="sel"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Username#1</td>
+            <td>Student Name</td>
+            <td>School ID</td>
+            <td><input type="checkbox"></td>
+            </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>Username#2</td>
+            <td>Student Name</td>
+            <td>School ID</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>Username#3</td>
+            <td>Student Name</td>
+            <td>School ID</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>Username#4</td>
+            <td>Student Name</td>
+            <td>School ID</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>Username#5</td>
+            <td>Student Name</td>
+            <td>School ID</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>Username#6</td>
+            <td>Student Name</td>
+            <td>School ID</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>Username#7</td>
+            <td>Student Name</td>
+            <td>School ID</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>Username#8</td>
+            <td>Student Name</td>
+            <td>School ID</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="search">
+    <input type="text" placeholder="Please enter name" required />
+</div>
+
+<div class="reset">
+    <button type="button">Reset Password</button>
+</div>
+
+<div class="create">
+    <button onclick="document.location='Screate_acc.html'">Create Account</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+
+        rows.forEach(row => {
+            row.addEventListener("click", () => {
+                window.location.href = row.dataset.href;
+            });
+        });
+    });
+</script>
+
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<link rel="stylesheet" href="teacher_acc.css" />
+
+<table>
+    <thead>
+        <tr>
+            <th class="name">Name</th>
+            <th class="teacher_acc">Account</th>
+            <th class="pass">Password</th>
+            <th class="sel"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-href="content_reset.html">
+            <td>Teacher#1</td>
+            <td>teacher.acc@gmail.com</td>
+            <td>Password</td>
+            <td><input type="checkbox"></td>
+        </trdata-href>
+    </tbody>
+    <tbody>
+        <tr data-href="content_reset.html">
+            <td>Teacher#1</td>
+            <td>teacher.acc@gmail.com</td>
+            <td>Password</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="content_reset.html">
+            <td>Teacher#1</td>
+            <td>teacher.acc@gmail.com</td>
+            <td>Password</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="content_reset.html">
+            <td>Teacher#1</td>
+            <td>teacher.acc@gmail.com</td>
+            <td>Password</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="content_reset.html">
+            <td>Teacher#1</td>
+            <td>teacher.acc@gmail.com</td>
+            <td>Password</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="content_reset.html">
+            <td>Teacher#1</td>
+            <td>teacher.acc@gmail.com</td>
+            <td>Password</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="content_reset.html">
+            <td>Teacher#1</td>
+            <td>teacher.acc@gmail.com</td>
+            <td>Password</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="content_reset.html">
+            <td>Teacher#1</td>
+            <td>teacher.acc@gmail.com</td>
+            <td>Password</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="search">
+    <input type="text" placeholder="Please enter name" required />
+</div>
+
+<div class="reset">
+    <button type="button">Reset Password</button>
+</div>
+
+<div class="create">
+    <button onclick="document.location='Tcreate_acc.html'">Create Account</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+
+        rows.forEach(row => {
+            row.addEventListener("click", () => {
+                window.location.href = row.dataset.href;
+            });
+        });
+    });
+</script>
+
+
+</html>

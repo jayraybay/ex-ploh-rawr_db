@@ -1,0 +1,78 @@
+.header {
+    overflow: hidden;
+    background-color: red;
+    padding: 20px 10px;
+}
+
+    .header a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 25px;
+        border-radius: 6px;
+    }
+
+     
+        .header a.logo {
+            font-size: 25px;
+            font-weight: bold;
+            font-family: sans-serif;
+            opacity: 1
+        }
+
+            .header a.logo:hover {
+                background-color: salmon;
+            }
+
+        .header a:hover {
+            background-color: salmon;
+        }
+
+        .header a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+
+.header-right {
+    float: right;
+}
+
+    .header-right a {
+        font-size: 24px;
+        font-family: Calibri;
+        margin: 0px 12px 0px 12px;
+        font-weight: bold;
+        opacity: .8;
+    }
+
+
+
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+}
+
+img {
+    border-radius: 4px;
+    padding: 5px;
+    width: 300px;
+    position:relative;
+    left: 600px;
+    top:150px;
+    margin: 0;
+}
+
+body {
+    background-image: url(bg_var2.jpg); 
+}
