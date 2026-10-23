@@ -1,0 +1,72 @@
+.header {
+    overflow: auto;
+    position:fixed;
+    background-color: red;
+    padding: 20px 10px;
+}
+
+    .header a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 25px;
+        border-radius: 6px;
+        position: fixed;
+    }
+
+
+        .header a.logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 130px;
+    background-color: #f1f1f1;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    width: 20%;
+}
+
+li a {
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+    li a.active {
+        background-color: salmon;
+        color: white;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #555555;
+        color: white;
+    }
+
+iframe {
+    float: right;
+    width: 80%;
+    height: 675px;
+    float: right;
+    overflow: auto;
+}
+
+body{
+    box-sizing: border-box;
+    margin:0px;
+}

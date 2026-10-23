@@ -1,0 +1,68 @@
+@font-face {
+    font-family: myFont;
+    src: url(VCR_OSD_MONO_1.001.ttf);
+}
+
+* {
+    font-family: myFont;
+}
+table {
+    position: fixed;
+    float: right;
+    height: 100px;
+    top: 50px;
+    width: 100%;
+    overflow: auto;
+}
+
+th {
+    background-color: salmon;
+    border: 1px salmon;
+}
+
+.sel{
+    width:10%;
+}
+
+.ques {
+    width: 30%;
+}
+
+.choice {
+    width: 30%;
+}
+
+.ans {
+    width: 30%;
+}
+td {
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+    text-align:center;
+}
+
+select {
+    float: left;
+    position: fixed;
+    top: 20px;
+    width: 25%;
+}
+
+.search input {
+    position: fixed;
+    top: 20px;
+    right: 280px;
+    width: 50%;
+}
+
+.edit button{
+    position:fixed;
+    top:20px;
+    float: right;
+    right: 30px;
+    width:20%;
+}
+
+dialog edtbtn{
+    background-color:salmon;
+}

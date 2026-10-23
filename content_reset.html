@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<link rel="stylesheet" href="content_reset.css" />
+
+<table>
+    <thead>
+        <tr>
+            <th class="sel"></th>
+            <th class="ques">Questions</th>
+            <th class="choice">Choices</th>
+            <th class="ans">Answers</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><button type="button" />reset</td>
+            <td>Question#1</td>
+            <td>Choice#1</td>
+            <td>Answer#1</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <te>
+            <td><button type="button" />reset</td>
+            <td>Question#1</td>
+            <td>Choice#1</td>
+            <td>Answer#1</td>
+        </te>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><button type="button" />reset</td>
+            <td>Question#1</td>
+            <td>Choice#1</td>
+            <td>Answer#1</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><button type="button" />reset</td>
+            <td>Question#1</td>
+            <td>Choice#1</td>
+            <td>Answer#1</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><button type="button" />reset</td>
+            <td>Question#1</td>
+            <td>Choice#1</td>
+            <td>Answer#1</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><button type="button" />reset</td>
+            <td>Question#1</td>
+            <td>Choice#1</td>
+            <td>Answer#1</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><button type="button" />reset</td>
+            <td>Question#1</td>
+            <td>Choice#1</td>
+            <td>Answer#1</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><button type="button" />reset</td>
+            <td>Question#1</td>
+            <td>Choice#1</td>
+            <td>Answer#1</td>
+        </tr>
+    </tbody>
+</table>
+<form action="/action_page.php">
+    <select name="Sec">
+        <option value="sec1">Activity</option>
+        <option value="sec2">Quiz</option>
+        <option value="sec3">Exam</option>
+        <option value="sec4">Puzzle</option>
+    </select>
+    <br><br>
+</form>
+<div class="search">
+    <input type="text" placeholder="Please enter name" required />
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+
+        rows.forEach(row => {
+            row.addEventListener("click", () => {
+                window.location.href = row.dataset.href;
+            });
+        });
+    });
+</script>
+
+
+</html>

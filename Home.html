@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<link rel="stylesheet" href="Home.css" />
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<body><table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Rank</th>
+            <th>Progress</th>
+            <th>Mastery</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-href="Students.html">
+            <td>User1</td>
+            <td>1st</td>
+            <td>100%</td>
+            <td>2.0</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="Students.html">
+            <td>User1</td>
+            <td>1st</td>
+            <td>100%</td>
+            <td>2.0</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="Students.html">
+            <td>User1</td>
+            <td>1st</td>
+            <td>100%</td>
+            <td>2.0</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="Students.html">
+            <td>User1</td>
+            <td>1st</td>
+            <td>100%</td>
+            <td>2.0</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="Students.html">
+            <td>User1</td>
+            <td>1st</td>
+            <td>100%</td>
+            <td>2.0</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="Students.html">
+            <td>User1</td>
+            <td>1st</td>
+            <td>100%</td>
+            <td>2.0</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="Students.html">
+            <td>User1</td>
+            <td>1st</td>
+            <td>100%</td>
+            <td>2.0</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr data-href="Students.html">
+            <td>User1</td>
+            <td>1st</td>
+            <td>100%</td>
+            <td>2.0</td>
+        </tr>
+    </tbody>
+</table></body>
+<div id="myPlot" style="width:100%; border:none"></div>
+
+<form action="/action_page.php">
+    <select name="Sec">
+        <option value="sec1">Section1</option>
+        <option value="sec2">Section2</option>
+        <option value="sec3">Section3</option>
+        <option value="sec4">Section4</option>
+        <option value="sec4">Section4</option>
+    </select>
+    <br><br>
+</form>
+<div class="search">
+    <input type="text" placeholder="Please enter name" required />
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+
+        rows.forEach(row => {
+            row.addEventListener("click", () => {
+                window.location.href = row.dataset.href;
+            });
+        });
+    });
+</script>
+
+<script>
+    const xArray = ["Section#1", "Section#2", "Section#3", "Section#4", "Section#5"];
+    const yArray = [55, 49, 44, 24, 15];
+
+    const data = [{
+        x: xArray,
+        y: yArray,
+        type: "bar",
+        orientation: "v",
+        marker: { color: "rgba(0,0,255,0.6)" }
+    }];
+
+    const layout = { title: "Progress Check" };
+
+    Plotly.newPlot("myPlot", data, layout);
+</script>
+
+
+</html>

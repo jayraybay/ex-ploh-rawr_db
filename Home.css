@@ -1,0 +1,46 @@
+@font-face {
+    font-family: myFont;
+    src: url(VCR_OSD_MONO_1.001.ttf);
+}
+
+* {
+    font-family: myFont;
+}
+table{
+    position:fixed;
+    float:right;
+    height: 100px;
+    bottom: -170px;
+    width:100%;
+    overflow:auto;
+}
+th {
+    background-color: salmon;
+    border: 1px salmon;
+}
+tbody:hover {
+    background-color: #555555;
+    color: white;
+}
+td {
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+    text-align: center;
+}
+
+select{
+    float:left;
+    position:fixed;
+    bottom: 300px;
+    width: 25%;
+}
+
+.search input{
+    position:fixed;
+    bottom: 300px;
+    right:0px;
+    width: 73%;
+}
+body{
+    overflow:auto;
+}
