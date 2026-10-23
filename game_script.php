@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost"; // or 127.0.0.1
-$username = "root";
-$password = "";
+$servername = "explorer-server.mysql.database.azure.com";
+$username = "xdifhddbhh";
+$password = "w8J523yFSqAcI5X$";
 $dbname = "divinedb";
 
 // Create Connection

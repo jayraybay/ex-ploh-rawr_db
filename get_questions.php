@@ -1,14 +1,13 @@
 <?php
-$servername = "localhost"; // or 127.0.0.1
-$username = "root";
-$password = "";
+$servername = "explorer-server.mysql.database.azure.com";
+$username = "xdifhddbhh";
+$password = "w8J523yFSqAcI5X$";
 $dbname = "divinedb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 
 $sql = "SELECT Indicate, Activity, Quiz, Exam, Answer FROM Content";
 $res = $conn->query($sql);
