@@ -1,44 +1,29 @@
 <?php
 $conn = mysqli_init();
+mysqli_ssl_set($conn,NULL,NULL, "/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
 
-$host = "explorer-server.mysql.database.azure.com";
+$host = "explorer-server.mysql.database.azure.com"; 
 $username = "xdifhddbhh";
 $password = "w8J523yFSqAcI5X$";
 $db_name = "divinedb";
 $port = 3306;
 
-$caPath = DIR . "/DigiCertGlobalRootG2.crt.pem";
-
-if (!is_readable($caPath))
-{
-    die("SSL certificate missing or unreadable: " . $caPath);
+mysqli_real_connect($conn, $host, $username, $password, $db_name, $port, MYSQLI_CLIENT_SSL);
+if (mysqli_connect_errno()) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-mysqli_ssl_set($conn, NULL, NULL, $caPath, NULL, NULL);
+//$id = $_POST["id"];
+//$pwd = $_POST["pwd"];
 
-try
-{
-    mysqli_real_connect(
-        $conn,
-        $host,
-        $username,
-        $password,
-        $db_name,
-        $port,
-        NULL,
-        MYSQLI_CLIENT_SSL
-    );
+echo "Successfully connected to Azure MySQL using MySQLi.";
 
-    echo "Successfully connected to Azure MySQL.";
-}
-catch (mysqli_sql_exception $e)
-{
-    error_log("Azure MySQL connection failed: " . $e->getMessage());
-    die("Database connection failed. Check the server logs.");
-}
+/*
+$get_creds = "SELECT `ID`, `Password`, `FName`, `MName`, `LName` FROM Teacher WHERE " .
+             "ID='" . $input_id . "' AND " .
+             "Password='" . $input_pwd . "'";*/
 
-$id = $_POST["id"] ?? "";
-$pwd = $_POST["pwd"] ?? "";
+$retrieve_result = "SELECT * FROM Student";
 ?>
 
 <!DOCTYPE HTML>
