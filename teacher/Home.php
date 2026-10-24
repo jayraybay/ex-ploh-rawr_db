@@ -1,8 +1,14 @@
 <?php
-$con = mysqli_init();
-mysqli_ssl_set($con,NULL,NULL, "/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
+$conn = mysqli_init();
+mysqli_ssl_set($conn,NULL,NULL, "/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
 
-if (!mysqli_real_connect($conn, "explorer-server.mysql.database.azure.com", "xdifhddbhh", "w8J523yFSqAcI5X$", "divinedb", 3306, MYSQLI_CLIENT_SSL)) {
+$host = "explorer-server.mysql.database.azure.com"; 
+$username = "xdifhddbhh";
+$password = "w8J523yFSqAcI5X$";
+$db_name = "divinedb";
+$port = 3306;
+
+if (!mysqli_real_connect($conn, $host, $username, $password, $db_name, $port, MYSQLI_CLIENT_SSL)) {
     die("Connection failed: " . $conn->connect_error);
 }
 
