@@ -1,15 +1,16 @@
 <?php
 $con = mysqli_init();
-mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL);
-mysqli_real_connect($conn, "explorer-server.mysql.database.azure.com", "xdifhddbhh", "w8J523yFSqAcI5X$", "divinedb", 3306, MYSQLI_CLIENT_SSL);
+mysqli_ssl_set($con,NULL,NULL, "/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
 
-if ($con->connect_error) {
-    echo "Connection Failed";
+if (!mysqli_real_connect($conn, "explorer-server.mysql.database.azure.com", "xdifhddbhh", "w8J523yFSqAcI5X$", "divinedb", 3306, MYSQLI_CLIENT_SSL)) {
     die("Connection failed: " . $conn->connect_error);
 }
 
 $id = $_POST["id"];
 $pwd = $_POST["pwd"];
+
+echo "Successfully connected to Azure MySQL using MySQLi.";
+mysqli_close($conn);
 
 /*
 $get_creds = "SELECT `ID`, `Password`, `FName`, `MName`, `LName`, `Section` FROM Teacher WHERE " .
