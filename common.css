@@ -1,0 +1,88 @@
+
+body{
+    overflow:auto;
+    margin: 0;
+}
+
+
+div.thirty-sixty {    
+    display: flex;
+}
+
+div.thirty-sixty nav {
+    width: 20%;
+}
+
+div.thirty-sixty main {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    box-sizing: border-box;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+header {
+    background-color: red;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+header a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+header a img {
+    height: 50px;
+    margin: 5px
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 25%;
+    background-image: url(bg_var4.jpg);
+    height: 100%;
+    left: 0;
+    top: 110px;
+    position: sticky;
+    overflow: hidden;
+}
+
+nav ul li a {
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Sans Serif Collection';
+    border-bottom: 1px solid black;
+}
+
+.nav-link.active {
+    background-color: salmon; /* Highlight color */
+    color: white;
+    font-weight: bold;
+}
+
+.nav-link a:hover {
+    background-color: salmon;
+}
+
+main {
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    flex-direction: column;
+}
+
+main h1, main h2, main h3, main h4, main h5, main h6 {
+    text-align: left;
+}

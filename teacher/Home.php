@@ -1,121 +1,141 @@
 <?php
-$conn = mysqli_init();
-mysqli_ssl_set($conn,NULL,NULL, "/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
+session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "divinedb";
 
-$host = "explorer-server.mysql.database.azure.com"; 
-$username = "xdifhddbhh";
-$password = "w8J523yFSqAcI5X$";
-$db_name = "divinedb";
-$port = 3306;
-
-mysqli_real_connect($conn, $host, $username, $password, $db_name, $port, MYSQLI_CLIENT_SSL);
-if (mysqli_connect_errno()) {
-    die("Connection failed: " . $conn->connect_error);
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("". $conn->connect_error);
 }
 
-//$id = $_POST["id"];
-//$pwd = $_POST["pwd"];
+$t_ID = "";
+$t_pwd = "";
+if (isset($_SESSION['teacher_ID'])) { $t_ID = $_SESSION['teacher_ID']; }
+if (isset($_SESSION['teacher_pwd'])) { $t_ID = $_SESSION['teacher_pwd']; }
 
-echo "Successfully connected to Azure MySQL using MySQLi.";
-
-/*
-$get_creds = "SELECT `ID`, `Password`, `FName`, `MName`, `LName` FROM Teacher WHERE " .
-             "ID='" . $input_id . "' AND " .
-             "Password='" . $input_pwd . "'";*/
-
-$retrieve_result = "SELECT * FROM Student";
+$retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery ASC) AS Rank, ID, PlayerName, Progress, Mastery FROM Student; ");
 ?>
 
 <!DOCTYPE HTML>
 <html>
-<link rel="stylesheet" href="Home.css" />
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<body><table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Rank</th>
-            <th>Progress</th>
-            <th>Mastery</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr data-href="Students.html">
-            <td>User1</td>
-            <td>1st</td>
-            <td>100%</td>
-            <td>2.0</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr data-href="Students.html">
-            <td>User1</td>
-            <td>1st</td>
-            <td>100%</td>
-            <td>2.0</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr data-href="Students.html">
-            <td>User1</td>
-            <td>1st</td>
-            <td>100%</td>
-            <td>2.0</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr data-href="Students.html">
-            <td>User1</td>
-            <td>1st</td>
-            <td>100%</td>
-            <td>2.0</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr data-href="Students.html">
-            <td>User1</td>
-            <td>1st</td>
-            <td>100%</td>
-            <td>2.0</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr data-href="Students.html">
-            <td>User1</td>
-            <td>1st</td>
-            <td>100%</td>
-            <td>2.0</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr data-href="Students.html">
-            <td>User1</td>
-            <td>1st</td>
-            <td>100%</td>
-            <td>2.0</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr data-href="Students.html">
-            <td>User1</td>
-            <td>1st</td>
-            <td>100%</td>
-            <td>2.0</td>
-        </tr>
-    </tbody>
-</table></body>
-<div id="myPlot" style="width:100%; border:none"></div>
+<head>
+    <link rel="stylesheet" href="Home.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
 
-<form action="/action_page.php">
-    <select name="Sec">
-        <option value="sec1">All Sections</option>
-    </select>
-    <br><br>
-</form>
-<div class="search">
-    <input type="text" placeholder="Please enter name" required />
+<header>
+    <a href="#default" class="logo"><img src="tANA0h-1717114438.png" alt="dmfc"><span>Divine Mercy College Foundation Inc.</span></a>
+</header>
+
+<div class="thirty-sixty">
+<nav>
+    <ul class="nav-link">
+        <li><a href="admin_home.html" class="nav-link">Home</a></li>
+        <li><a href="default_content.html" class="nav-link">Dashboard</a></li>
+        <li><a href="teacher_acc.html" class="nav-link">Content</a></li>
+        <li><a href="student_acc.html" class="nav-link">Account</a></li>
+        <li><a href="teacherProfile.html" class="nav-link">Settings</a></li>
+    </ul>
+</nav>
+<main>
+    <h2>Dashboard</h2>
+    <div class="dashboard">
+        <button onclick="DashboardPrev()"></button>
+
+        <div class="content">
+
+        <section class="top">
+            <h3>Top Three (3) Progress</h3>
+            
+            <?php
+                $get_top_progress = $conn->query("SELECT * FROM Student ORDER BY Progress ASC LIMIT 3;");
+                if ($get_top_progress->num_rows >= 3) {
+                    $row1 = $get_top_progress->fetch_assoc();
+                    echo "<div>1st " . htmlspecialchars($row1["PlayerName"]) . " (" . htmlspecialchars($row1["Progress"]) . ")</div>";
+
+                    $row2 = $get_top_progress->fetch_assoc();
+                    echo "<div>2nd " . htmlspecialchars($row2["PlayerName"]) . " (" . htmlspecialchars($row2["Progress"]) . ")</div>";
+
+                    $row3 = $get_top_progress->fetch_assoc();
+                    echo "<div>3rd " . htmlspecialchars($row3["PlayerName"]) . " (" . htmlspecialchars($row3["Progress"]) . ")</div>";
+                } else {
+                    echo "<div>No records found.";
+                }
+            ?>
+        </section>
+
+        <section class="top">
+            <h3>Top Three (3) Mastery</h3>
+            <?php
+                $get_top_mastery = $conn->query("SELECT * FROM Student ORDER BY Mastery ASC LIMIT 3;");
+                if ($get_top_mastery->num_rows >= 3) {
+                    $row1 = $get_top_mastery->fetch_assoc();
+                    echo "<div>1st " . htmlspecialchars($row1["PlayerName"]) . " (" . htmlspecialchars($row1["Mastery"]) . ")</div>";
+
+                    $row2 = $get_top_mastery->fetch_assoc();
+                    echo "<div>2nd " . htmlspecialchars($row2["PlayerName"]) . " (" . htmlspecialchars($row2["Mastery"]) . ")</div>";
+
+                    $row3 = $get_top_mastery->fetch_assoc();
+                    echo "<div>3rd " . htmlspecialchars($row3["PlayerName"]) . " (" . htmlspecialchars($row3["Mastery"]) . ")</div>";
+                } else {
+                    echo "<div>No records found.";
+                }
+            ?>
+        </section>
+        </div>
+        <button onclick="DashboardNext()"></button>
+    </div>
+    
+    <br/>
+
+    <h2>Leaderboards</h2>
+    <form action="/action_page.php">
+        <select name="Sec">
+            <option value="sec1">All Sections</option>
+            <option value="sec1">Grade 12 - Trustworthy (ICT)</option>
+        </select>
+        <input type="text" placeholder="Please enter name" required name="searchStudent" />
+    </form> 
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Progress</th>
+                <th>Mastery</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($retrieve_students->num_rows > 0) {
+                    while ($row = $retrieve_students->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($row["Rank"]) . "</td>";
+                    echo "<td>" . htmlspecialchars($row["PlayerName"]) . "</td>";
+                    echo "<td>" . htmlspecialchars($row["Progress"]) . "</td>";
+                    echo "<td>" . htmlspecialchars($row["Mastery"]) . "</td>";
+                    echo "<td><a href=\"student_acc.php?id=\"". htmlspecialchars($row["ID"]) . "\">View</a></td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='4'>No records found</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</main>
 </div>
 
+<script src="teacher_home.js"></script>
+</body>
+<!--this part is for selecting a single student and 
+the data for the chart-->
+<!--
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const rows = document.querySelectorAll("tr[data-href]");
@@ -143,7 +163,5 @@ $retrieve_result = "SELECT * FROM Student";
     const layout = { title: "Progress Check" };
 
     Plotly.newPlot("myPlot", data, layout);
-</script>
-
-
+</script> -->
 </html>

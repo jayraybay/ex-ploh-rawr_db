@@ -6,41 +6,203 @@
 * {
     font-family: myFont;
 }
-table{
-    position:fixed;
-    float:right;
-    height: 100px;
-    bottom: -170px;
-    width:100%;
-    overflow:auto;
+
+table {
+    width: 100%;
 }
+
 th {
     background-color: salmon;
     border: 1px salmon;
 }
-tbody:hover {
-    background-color: #555555;
-    color: white;
-}
+
 td {
     border-bottom: 1px solid #ddd;
     height: 50px;
     text-align: center;
 }
 
-select{
-    float:left;
-    position:fixed;
-    bottom: 300px;
-    width: 25%;
-}
+/*
+tbody:hover {
+    background-color: #555555;
+    color: white;
+}*/
 
-.search input{
-    position:fixed;
-    bottom: 300px;
-    right:0px;
-    width: 73%;
-}
+
 body{
     overflow:auto;
+    margin: 0;
 }
+
+
+div.thirty-sixty {    
+    display: flex;
+}
+
+div.thirty-sixty nav {
+    width: 20%;
+}
+
+div.thirty-sixty main {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    box-sizing: border-box;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+header {
+    background-color: red;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+header a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+header a img {
+    height: 50px;
+    margin: 5px
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 25%;
+    background-image: url(bg_var4.jpg);
+    height: 100%;
+    left: 0;
+    top: 110px;
+    position: sticky;
+    overflow: hidden;
+}
+
+nav ul li a {
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Sans Serif Collection';
+    border-bottom: 1px solid black;
+}
+
+.nav-link.active {
+    background-color: salmon; /* Highlight color */
+    color: white;
+    font-weight: bold;
+}
+
+.nav-link a:hover {
+    background-color: salmon;
+}
+
+main {
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    flex-direction: column;
+}
+
+main form {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+select {
+    display: inline-block;
+    margin: auto;
+}
+
+main form select {
+    box-sizing: border-box;
+    margin: auto;
+    width: 20%;
+}
+
+main form input {
+    display: inline-block;
+    margin: auto;
+    box-sizing: border-box;
+    width: 70%;
+}
+
+main h1, main h2, main h3, main h4, main h5, main h6 {
+    text-align: left;
+}
+
+div.dashboard {
+    /*border: 1px solid black; */
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    height: 400px;
+}
+
+div.dashboard button {
+    background-color: rgb(234, 234, 234);
+    border: none;
+    display: inline-block;
+    width: 5%;
+    height: 100%;
+
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+div.dashboard button:hover {
+    background-color: rgb(227, 227, 227);
+}
+
+div.dashboard div.content {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 95%;
+    height: 100%;
+
+    display: flex;
+}
+
+div.dashboard div.content section {
+    display: inline-block;
+    background-color: white;
+    padding: 2.5%;
+    margin: 2px;
+    height: 50%;
+    width: 45%;
+}
+
+div.dashboard div.content section.top div {
+    text-align: left;
+}
+
+div.dashboard div.content section.top div {
+    margin-bottom: 5%;
+}
+
+div.dashboard div.content section.top div:nth-of-type(1) {
+    font-size: 22px;
+}
+div.dashboard div.content section.top div:nth-of-type(2) {
+    font-size: 20px;
+}
+div.dashboard div.content section.top div:nth-of-type(3) {
+    font-size: 18px;
+}
+
+

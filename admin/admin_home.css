@@ -6,14 +6,7 @@
 * {
     font-family: myFont;
 }
-table {
-    position: fixed;
-    float: right;
-    height: 100px;
-    top: 100px;
-    width: 100%;
-    overflow: auto;
-}
+
 
 th {
     background-color: salmon;
@@ -42,14 +35,6 @@ td {
     text-align: center;
 }
 
-.search input {
-    position: fixed;
-    top: 60px;
-    width: 50%;
-    right: 50px;
-}
-
-h1{
-    position:relative;
-    top: 30px;
+body {
+    overflow: scroll;
 }

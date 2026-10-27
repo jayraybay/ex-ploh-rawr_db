@@ -1,126 +1,105 @@
 <?php
-$conn = mysqli_init();
-mysqli_ssl_set($conn,NULL,NULL, "/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
-
-$host = "explorer-server.mysql.database.azure.com"; 
-$username = "xdifhddbhh";
-$password = "w8J523yFSqAcI5X$";
-$db_name = "divinedb";
+$host = "localhost"; 
+$username = "root";
+$password = "";
+$dbname = "divinedb";
 $port = 3306;
 
-mysqli_real_connect($conn, $host, $username, $password, $db_name, $port, MYSQLI_CLIENT_SSL);
-if (mysqli_connect_errno()) {
-    die("Connection failed: " . $conn->connect_error);
+$conn = new mysqli($host, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("". $conn->connect_error);
 }
 
-
-echo "Successfully connected to Azure MySQL using MySQLi.";
-
-$retrieve_result = $conn->query("SELECT * FROM Student");
+$retrieve_students = $conn->query("SELECT * FROM Student;");
+$retrieve_teachers = $conn->query("SELECT * FROM Teacher;");
 ?>
-
 
 <!DOCTYPE HTML>
 <html>
-<link rel="stylesheet" href="admin_home.css" />
+<head>
+    <link rel="stylesheet" type="text/css" href="admin_home.css"/>
+    <link rel="stylesheet" type="text/css" href="../common.css"/>
+</head>
+<body>
 
-<head><h1>Student Account Monitoring</h1></head>
-<table>
-    <thead>
-        <tr>
-            <th class="name">username</th>
-            <th class="Sname">Name</th>
-            <th class="pass">School ID</th>
-            <th class="sel">Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            if ($retrieve_result->num_rows > 0) {
-                while ($row = $retrieve_result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . htmlspecialchars($row["PlayerName"]) . "</td>";
-                    echo "<td>" . htmlspecialchars($row["PlayerName"]) . "</td>";
-                    echo "<td>" . htmlspecialchars($row["ID"]) . "</td>";
-                    echo "<td>" . "Offline" . "</td>";
-                    echo "</tr>";
-                }
+<header>
+    <a href="#default" class="logo"><img src="tANA0h-1717114438.png" alt="dmfc"><span>Divine Mercy College Foundation Inc.</span></a>
+</header>
 
-            } else {
-                echo "<tr><td colspan='4'>No records found</td></tr>";
+<div class="thirty-sixty">
+<nav>
+    <ul class="nav-link">
+        <li><a href="admin_home.html" class="nav-link">Home</a></li>
+        <li><a href="default_content.html" class="nav-link">Manage Students</a></li>
+        <li><a href="teacher_acc.html" class="nav-link">Manage Teachers</a></li>
+        <li><a href="student_acc.html" class="nav-link">Manage Content</a></li>
+        <li><a href="admin_home.html" class="nav-link">Account</a></li>
+    </ul>
+</nav>
+<main>
 
-            }
-
-
-        ?>
-
-        <tr>
-            <td>Username#1</td>
-            <td>Student Name</td>
-            <td>School ID</td>
-            <td>Active</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>Username#2</td>
-            <td>Student Name</td>
-            <td>School ID</td>
-            <td>Offline</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>Username#3</td>
-            <td>Student Name</td>
-            <td>School ID</td>
-            <td>Active</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>Username#4</td>
-            <td>Student Name</td>
-            <td>School ID</td>
-            <td>Active</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>Username#5</td>
-            <td>Student Name</td>
-            <td>School ID</td>
-            <td>Active</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>Username#6</td>
-            <td>Student Name</td>
-            <td>School ID</td>
-            <td>Active</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>Username#7</td>
-            <td>Student Name</td>
-            <td>School ID</td>
-            <td>Offline</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>Username#8</td>
-            <td>Student Name</td>
-            <td>School ID</td>
-            <td>Offline</td>
-        </tr>
-    </tbody>
-</table>
-
-<div class="search">
+    <h2>Student Account Monitoring</h2>
+    <form>
+        <input type="text" placeholder="Please enter name" required />
+        <a href="Screate_acc.html">Create Student Account</a>
+    </form>
+    
+    <table>
+        <thead>
+            <tr>
+                <th class="name">ID</th>
+                <th class="Sname">Name</th>
+                <th class="pass">Section</th>
+                <th class="sel">Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                if ($retrieve_students->num_rows > 0) {
+                    while ($row = $retrieve_students->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($row["ID"]) . "</td>";
+                        echo "<td>" . htmlspecialchars($row["PlayerName"]) . "</td>";
+                        echo "<td>" . htmlspecialchars($row["Section"]) . "</td>";
+                        echo "<td><a href=\"student_acc.php?id=". htmlspecialchars($row["ID"]) ."\">Edit</a></td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4'>No records found</td></tr>";
+                }            
+            ?>
+        </tbody>
+    </table>
+    
+    <h2>Teacher Account Monitoring</h2>
     <input type="text" placeholder="Please enter name" required />
-</div>
+    <a href="Screate_acc.html">Create Student Account</a>
+    <table>
+        <thead>
+            <tr>
+                <th class="name">ID</th>
+                <th class="Sname">Name</th>
+                <th class="sel">Option</th>
+            </tr>
+        </thead>
+        <tbody>
 
+        <?php
+            if ($retrieve_teachers->num_rows > 0) {
+                    while ($row = $retrieve_teachers->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($row["ID"]) . "</td>";
+                        echo "<td>" . htmlspecialchars($row["First_Name"]) . " " . htmlspecialchars($row["Middle_Initials"]) . " " . htmlspecialchars($row["Last_Name"]) . "</td>";
+                        echo "<td><a href=\"teacher_acc.php?id=\"". htmlspecialchars($row["ID"]) ."\">Edit</a></td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4'>No records found</td></tr>";
+                }
+                $conn->close();
+        ?>
+        </tbody>
+    </table>
+</main>
+</body>
 </html>
