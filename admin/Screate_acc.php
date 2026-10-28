@@ -67,7 +67,7 @@ if ($conn->connect_error) {
             <?php 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $id = $_POST["id"];
-                    $fname = $_POST["lname"];
+                    $fname = $_POST["fname"];
                     $mname = $_POST["mname"];
                     $lname = $_POST["lname"];
                     $sec = $_POST["sec"];

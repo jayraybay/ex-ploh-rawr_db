@@ -151,13 +151,13 @@ div.dashboard {
     flex-direction: row;
     align-items: center;
     align-content: center;
-    height: 400px;
+    height: 320px;
 }
 
 div.dashboard button {
     border: none;
     display: inline-block;
-    width: 5%;
+    width: 2.5%;
     height: 100%;
 
     cursor: pointer;
@@ -170,6 +170,7 @@ div.dashboard button:hover {
 }*/
 
 div.dashboard div.content {
+    background-color: rgb(0,0,0,0);
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 5%;
@@ -181,13 +182,25 @@ div.dashboard div.content {
 }
 
 div.dashboard div.content section {
-    display: inline-block;
+    display: relative;
     background-color: white;
     padding: 2.5%;
-    margin: 2px;
-    height: 60%;
-    width: 40%;
+    width: 100%;
+    text-align: left;
+
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
 }
+
+section.section_mastery { background-image: url(../img/ic_percentage.png); }
+section.section_toppers { background-image: url(../img/ic_crown.png); }
+
+/*
+section.section_mastery {
+    background-image: url(../img/ic_percentage.png);
+} */
+
 
 div.dashboard div.content section.top div {
     text-align: left;
@@ -208,3 +221,67 @@ div.dashboard div.content section.top div:nth-of-type(3) {
 }
 
 
+
+/*
+    MS = Mastery Section
+*/
+section p {
+    color: rgb(80, 80, 80);
+
+}
+
+div.ms_name {
+    font-size: 22px;
+    text-decoration: underline;
+    font-weight: thin;
+}
+
+div.ms_average {
+    font-size: 44px;
+    font-weight: bold;
+}
+
+
+
+section#section_toppers div.ms_name {
+    margin-bottom: 5px;
+    font-size: 22px;
+    text-decoration: underline;
+    font-weight: thin;
+}
+
+div span.ms_topper {
+    display: inline-block;
+    color: rgb(40, 40, 40);
+    margin-right: 15px;
+}
+
+
+div span.ms_pos1 {
+    padding-left: 5px; 
+    padding-right: 5px; 
+    background-color: rgb(255,215,0); 
+    color: white; 
+}
+
+div span.ms_pos2 { 
+    padding-left: 5px; 
+    padding-right: 5px; 
+    background-color: rgb(192,192,192); 
+    color: white; 
+}
+
+div span.ms_pos3 { 
+    padding-left: 5px; 
+    padding-right: 5px; 
+    background-color: rgb(205,127,50); 
+    color: white; 
+}
+
+div span.topper1 { border-bottom: 2px solid rgb(255,215,0); }
+div span.topper2 { border-bottom: 2px solid rgb(192,192,192); }
+div span.topper3 { border-bottom: 2px solid rgb(205,127,50); }
+
+div span.ms_mastery {
+    color: rgb(127, 127, 127);
+}
