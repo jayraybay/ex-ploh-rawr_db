@@ -6,12 +6,13 @@
 * {
     font-family: myFont;
 }
+
 table {
     position: fixed;
-    float: right;
+    right:0;
     height: 100px;
-    top: 50px;
-    width: 100%;
+    top: 180px;
+    width: 80%;
     overflow: auto;
 }
 
@@ -20,8 +21,8 @@ th {
     border: 1px salmon;
 }
 
-.sel{
-    width:10%;
+.sel {
+    width: 10%;
 }
 
 .ques {
@@ -35,34 +36,34 @@ th {
 .ans {
     width: 30%;
 }
+
 td {
     border-bottom: 1px solid #ddd;
     height: 50px;
-    text-align:center;
+    text-align: center;
 }
 
 select {
-    float: left;
     position: fixed;
-    top: 20px;
-    width: 25%;
+    top: 150px;
+    right: 320px;
+    width: 20%;
 }
 
 .search input {
     position: fixed;
-    top: 20px;
-    right: 280px;
-    width: 50%;
+    top: 150px;
+    left: 320px;
+    width: 35%;
 }
 
-.edit button{
-    position:fixed;
-    top:20px;
-    float: right;
-    right: 30px;
-    width:20%;
+.edit button {
+    position: fixed;
+    top: 150px;
+    right: 0px;
+    width: 20%;
 }
 
-dialog edtbtn{
-    background-color:salmon;
+dialog edtbtn {
+    background-color: salmon;
 }

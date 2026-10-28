@@ -6,12 +6,13 @@
 * {
     font-family: myFont;
 }
+
 table {
     position: fixed;
-    float: right;
+    right: 0;
     height: 100px;
-    top: 50px;
-    width: 100%;
+    top: 180px;
+    width: 80%;
     overflow: auto;
 }
 
@@ -45,14 +46,13 @@ td {
 select {
     float: left;
     position: fixed;
-    top: 20px;
+    top: 150px;
     width: 25%;
 }
 
 .search input {
     position: fixed;
-    top: 20px;
-    right: 0px;
-    width: 73%;
+    top: 150px;
+    left: 320px;
+    width: 35%;
 }
-

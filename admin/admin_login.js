@@ -2,7 +2,6 @@
 const INPUT_USER = document.getElementById("admin_user");
 const INPUT_PASS = document.getElementById("admin_pwd");
 
-
 function ClearInputs() {
     INPUT_USER.value = "";
     INPUT_PASS.value = "";

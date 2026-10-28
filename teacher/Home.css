@@ -149,11 +149,12 @@ div.dashboard {
 
     display: flex;
     flex-direction: row;
+    align-items: center;
+    align-content: center;
     height: 400px;
 }
 
 div.dashboard button {
-    background-color: rgb(234, 234, 234);
     border: none;
     display: inline-block;
     width: 5%;
@@ -163,9 +164,10 @@ div.dashboard button {
     transition: all 0.25s;
 }
 
+/*
 div.dashboard button:hover {
     background-color: rgb(227, 227, 227);
-}
+}*/
 
 div.dashboard div.content {
     padding-top: 1%;
@@ -183,8 +185,8 @@ div.dashboard div.content section {
     background-color: white;
     padding: 2.5%;
     margin: 2px;
-    height: 50%;
-    width: 45%;
+    height: 60%;
+    width: 40%;
 }
 
 div.dashboard div.content section.top div {

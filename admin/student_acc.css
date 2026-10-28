@@ -6,12 +6,13 @@
 * {
     font-family: myFont;
 }
+
 table {
     position: fixed;
-    float: right;
+    right: 0;
     height: 100px;
-    top: 50px;
-    width: 100%;
+    top: 180px;
+    width: 80%;
     overflow: auto;
 }
 
@@ -44,25 +45,22 @@ td {
 
 .search input {
     position: fixed;
-    top: 20px;
-    width: 50%;
+    top: 150px;
+    left: 320px;
+    width: 35%;
 }
 
 .reset button {
     position: fixed;
-    top: 20px;
+    top: 150px;
     right: 0px;
-    width: 22%;
+    width: 20%;
 }
 
-tbody:hover {
-    background-color: #555555;
-    color: white;
-}
 
 .create button {
     position: fixed;
-    top: 20px;
-    right: 300px;
-    width: 22%;
+    top: 150px;
+    right: 320px;
+    width: 20%;
 }

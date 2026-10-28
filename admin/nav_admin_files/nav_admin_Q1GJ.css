@@ -93,17 +93,28 @@ li a {
     background-color: salmon;
 }
 
-iframe {
-    right: 0px;
-    width: 80%;
-    height: 675px;
-    overflow: auto;
-    position: fixed;
-    border: none;
-    top: 110px;
-    background-color:transparent;
-}
 
 body {
     background-image: url(bg_var4.jpg);
 }
+
+div.thirty-sixty {
+    display: flex;
+}
+
+    div.thirty-sixty nav {
+        width: 20%;
+    }
+    div.thirty-sixty main {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        box-sizing: border-box;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        text-align: center;
+    }
+
+/*Admin table*/

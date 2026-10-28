@@ -22,6 +22,7 @@ $retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery AS
 <html>
 <head>
     <link rel="stylesheet" href="Home.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
@@ -43,50 +44,77 @@ $retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery AS
 <main>
     <h2>Dashboard</h2>
     <div class="dashboard">
-        <button onclick="DashboardPrev()"></button>
+        <button onclick="DashboardPrev()"><span class="material-symbols-outlined">chevron_left</span></button>
 
+        <!-- Average Mastery of each section -->
         <div class="content">
+            <section>
+                <h3>Section Mastery</h3>
+                
+                <?php
+                    $get_sections = $conn->query("SELECT * FROM Section;");
 
-        <section class="top">
-            <h3>Top Three (3) Progress</h3>
-            
-            <?php
-                $get_top_progress = $conn->query("SELECT * FROM Student ORDER BY Progress ASC LIMIT 3;");
-                if ($get_top_progress->num_rows >= 3) {
-                    $row1 = $get_top_progress->fetch_assoc();
-                    echo "<div>1st " . htmlspecialchars($row1["PlayerName"]) . " (" . htmlspecialchars($row1["Progress"]) . ")</div>";
+                    while ($row = $get_sections->fetch_assoc()) {
+                        $section = $row["Name"];
+                        $average = ($conn->query("SELECT AVG(Mastery) AS Average_Mastery FROM Student WHERE Section='" . $row["Name"] . "';"))->fetch_assoc();
 
-                    $row2 = $get_top_progress->fetch_assoc();
-                    echo "<div>2nd " . htmlspecialchars($row2["PlayerName"]) . " (" . htmlspecialchars($row2["Progress"]) . ")</div>";
+                        echo "<div class=\"sm_\">" . $section . ": " . $average["Average_Mastery"] . "</div>";
+                    }
 
-                    $row3 = $get_top_progress->fetch_assoc();
-                    echo "<div>3rd " . htmlspecialchars($row3["PlayerName"]) . " (" . htmlspecialchars($row3["Progress"]) . ")</div>";
-                } else {
-                    echo "<div>No records found.";
-                }
-            ?>
-        </section>
 
-        <section class="top">
-            <h3>Top Three (3) Mastery</h3>
-            <?php
-                $get_top_mastery = $conn->query("SELECT * FROM Student ORDER BY Mastery ASC LIMIT 3;");
-                if ($get_top_mastery->num_rows >= 3) {
-                    $row1 = $get_top_mastery->fetch_assoc();
-                    echo "<div>1st " . htmlspecialchars($row1["PlayerName"]) . " (" . htmlspecialchars($row1["Mastery"]) . ")</div>";
 
-                    $row2 = $get_top_mastery->fetch_assoc();
-                    echo "<div>2nd " . htmlspecialchars($row2["PlayerName"]) . " (" . htmlspecialchars($row2["Mastery"]) . ")</div>";
+                ?>
 
-                    $row3 = $get_top_mastery->fetch_assoc();
-                    echo "<div>3rd " . htmlspecialchars($row3["PlayerName"]) . " (" . htmlspecialchars($row3["Mastery"]) . ")</div>";
-                } else {
-                    echo "<div>No records found.";
-                }
-            ?>
-        </section>
+            </section>
+
+
         </div>
-        <button onclick="DashboardNext()"></button>
+
+        <!--
+        <div class="content" id="topper">
+            <section class="top_progress">
+                <h3>Top 3 Progress</h3>
+                
+                <?php
+                    $get_top_progress = $conn->query("SELECT * FROM Student ORDER BY Progress ASC LIMIT 3;");
+                    if ($get_top_progress->num_rows >= 3) {
+                        $row1 = $get_top_progress->fetch_assoc();
+                        echo "<div>1st " . htmlspecialchars($row1["PlayerName"]) . " (" . htmlspecialchars($row1["Progress"]) . ")</div>";
+
+                        $row2 = $get_top_progress->fetch_assoc();
+                        echo "<div>2nd " . htmlspecialchars($row2["PlayerName"]) . " (" . htmlspecialchars($row2["Progress"]) . ")</div>";
+
+                        $row3 = $get_top_progress->fetch_assoc();
+                        echo "<div>3rd " . htmlspecialchars($row3["PlayerName"]) . " (" . htmlspecialchars($row3["Progress"]) . ")</div>";
+                    } else {
+                        echo "<div>No records found.";
+                    }
+                ?>
+            </section>
+
+            <section class="top_mastery">
+                <h3>Top 3 Mastery</h3>
+                <?php
+                    $get_top_mastery = $conn->query("SELECT * FROM Student ORDER BY Mastery ASC LIMIT 3;");
+                    if ($get_top_mastery->num_rows >= 3) {
+                        $row1 = $get_top_mastery->fetch_assoc();
+                        echo "<div>1st " . htmlspecialchars($row1["PlayerName"]) . " (" . htmlspecialchars($row1["Mastery"]) . ")</div>";
+
+                        $row2 = $get_top_mastery->fetch_assoc();
+                        echo "<div>2nd " . htmlspecialchars($row2["PlayerName"]) . " (" . htmlspecialchars($row2["Mastery"]) . ")</div>";
+
+                        $row3 = $get_top_mastery->fetch_assoc();
+                        echo "<div>3rd " . htmlspecialchars($row3["PlayerName"]) . " (" . htmlspecialchars($row3["Mastery"]) . ")</div>";
+                    } else {
+                        echo "<div>No records found.";
+                    }
+                ?>
+            </section>
+        </div> -->
+
+
+
+        <button onclick="DashboardNext()"><span class="material-symbols-outlined">chevron_right</span></button>
     </div>
     
     <br/>
@@ -131,8 +159,52 @@ $retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery AS
 </main>
 </div>
 
-<script src="teacher_home.js"></script>
+<script>
+    
+    
+// Top Three Students regardless of section
+const DB_TOPPER = document.getElementById("topper");
+// Average Mastery of each section
+const DB_SECTOR = document.getElementById("sector");
+
+
+var DASHBOARD_INDEX;
+
+window.onload = function () {
+    DASHBOARD_INDEX = 1;
+    ShowDashboard(1);
+}
+
+function DashboardPrev() {
+    DASHBOARD_INDEX--;
+}
+
+function DashboardNext() {
+    DASHBOARD_INDEX++;
+}
+
+function ShowDashboard(page=0) {
+
+    switch (page) {
+        case 1:
+            DB_TOPPER.style.display = "block";
+            DB__SECTOR.style.display = "none";
+            break;
+        case 2:
+            DB_TOPPER.style.display = "none";
+            DB__SECTOR.style.display = "block";
+            break;
+
+    }
+
+}
+
+</script>
 </body>
+
+
+<!--  irrelevant below -->
+
 <!--this part is for selecting a single student and 
 the data for the chart-->
 <!--

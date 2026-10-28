@@ -13,7 +13,6 @@ if ($conn->connect_error) {
 $retrieve_students = $conn->query("SELECT * FROM Student;");
 $retrieve_teachers = $conn->query("SELECT * FROM Teacher;");
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -37,11 +36,10 @@ $retrieve_teachers = $conn->query("SELECT * FROM Teacher;");
     </ul>
 </nav>
 <main>
-
     <h2>Student Account Monitoring</h2>
     <form>
         <input type="text" placeholder="Please enter name" required />
-        <a href="Screate_acc.html">Create Student Account</a>
+        <a class="btn_create" href="Screate_acc.php" >Create Student Account</a>
     </form>
     
     <table>
@@ -73,7 +71,7 @@ $retrieve_teachers = $conn->query("SELECT * FROM Teacher;");
     
     <h2>Teacher Account Monitoring</h2>
     <input type="text" placeholder="Please enter name" required />
-    <a href="Screate_acc.html">Create Student Account</a>
+    <a href="Tcreate_acc.php">Create Teacher Account</a>
     <table>
         <thead>
             <tr>
@@ -83,7 +81,6 @@ $retrieve_teachers = $conn->query("SELECT * FROM Teacher;");
             </tr>
         </thead>
         <tbody>
-
         <?php
             if ($retrieve_teachers->num_rows > 0) {
                     while ($row = $retrieve_teachers->fetch_assoc()) {

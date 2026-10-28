@@ -7,55 +7,58 @@
     font-family: myFont;
 }
 
-h1{
-    padding: 4px 0px 0px 32px;  
+h1 {
+    padding: 4px 0px 0px 32px;
+    position: fixed;
+    top: 150px;
 }
 
-img{
-    float: right;
-    position:relative;
-    bottom: 50px;
+img {
+    right: 0;
+    position: fixed;
+    top: 200px;
     right: 80px;
     height: 250px;
-    border: 1px solid black;
 }
 
 .name p {
-    position: relative;
-    top: 50px;
-    padding: 0px 0px 0px 80px;
+    position: fixed;
+    top: 230px;
+    left: 400px;
+    padding: 0px 70px 0px 0px;
     font-size: 32px;
-    width: 50%;
+    width: 25%;
     border-radius: 25px;
+    text-align: left;
 }
 
 .occ p {
-    position: relative;
+    position: fixed;
     padding: 0px 0px 0px 80px;
     font-size: 24px;
-    top: 25px;
+    top: 280px;
     border-radius: 25px;
 }
 
-.creds p{
-    position: relative;
-    top: 100px;
-    padding: 0px 0px 0px 80px;
+.creds p {
+    position: fixed;
+    top: 340px;
+    padding: 0px 0px 0px 60px;
     font-weight: bold;
     font-size: 24px;
 }
 
 .date p {
-    position: relative;
-    top: 80px;
+    position: fixed;
+    bottom: 400px;
     padding: 0px 0px 0px 80px;
     font-size: 24px;
 }
 
 button {
-    position: relative;
-    left: 100px;
-    top: 70px;
+    position: fixed;
+    left: 400px;
+    bottom: 350px;
     width: 20%;
     height: 30px;
     background-color: salmon;

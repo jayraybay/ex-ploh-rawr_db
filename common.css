@@ -86,3 +86,11 @@ main {
 main h1, main h2, main h3, main h4, main h5, main h6 {
     text-align: left;
 }
+
+main form {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}

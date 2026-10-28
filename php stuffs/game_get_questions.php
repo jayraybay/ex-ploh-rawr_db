@@ -1,7 +1,7 @@
 <?php
-$servername = "explorer-server.mysql.database.azure.com";
-$username = "xdifhddbhh";
-$password = "w8J523yFSqAcI5X$";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "divinedb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -21,8 +21,6 @@ if ($res->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
-
 
 $conn->close()
 ?>

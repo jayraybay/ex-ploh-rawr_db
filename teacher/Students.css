@@ -10,7 +10,7 @@ h1 {
     padding: 4px 0px 0px 32px;
 }
 
-img {
+.profile img {
     float: right;
     position: relative;
     bottom: 10px;
@@ -25,8 +25,8 @@ img {
     padding: 0px 0px 12px 80px;
     font-size: 32px;
     width: 15%;
-    border: 1px solid black;
-    border-radius: 25px;
+    /* border: 1px solid black;
+    border-radius: 25px; */
 }
 
 .sec p {
@@ -35,8 +35,8 @@ img {
     font-size: 24px;
     top: 25px;
     width: 15%;
-    border: 1px solid black;
-    border-radius: 25px;
+    /* border: 1px solid black;
+    border-radius: 25px; */
 }
 
 .creds p {
@@ -52,6 +52,28 @@ img {
     top: 80px;
     padding: 0px 0px 0px 80px;
     font-size: 24px;
+}
+
+.mastery p {
+    position: relative;
+    font-size: 50px;
+    float:right;
+    width:50%;
+    height: 0px;
+    margin-bottom: 0px;
+}
+
+.entry p {
+    position: relative;
+    top: 80px;
+    padding: 0px 0px 0px 80px;
+    font-size: 24px;
+    
+}
+
+.entryLineToReplace p{
+    color:gray;
+    top: 60px;
 }
 
 table {
