@@ -10,7 +10,7 @@ table {
     float: right;
     height: 100px;
     top: 50px;
-    width: 100%;
+    width: 95%;
     overflow: auto;
 }
 
@@ -51,4 +51,12 @@ table select {
 
 table select option {
     width: 100%;
+}
+
+table button {
+    width: 100%;
+}
+
+main {
+    padding-left: 5%;
 }

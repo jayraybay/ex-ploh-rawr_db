@@ -14,22 +14,72 @@ if ($conn->connect_error) {
 
 <!DOCTYPE HTML>
 <html>
-
-        <link rel="stylesheet" type="text/css" href="../common.css"/>
-        <link rel="stylesheet" href="Home.css" />
-        <link rel="stylesheet" href="Content.css" />
-
+<head>
+    <link rel="stylesheet" type="text/css" href="../common.css"/>
+    <link rel="stylesheet" href="Home.css" />
+    <link rel="stylesheet" href="Content.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back" />
+</head>
     <body>
         <header>
             <a href="#default" class="logo"><img src="tANA0h-1717114438.png" alt="dmfc"><span>Divine Mercy College Foundation Inc.</span></a>
         </header>
 
     <main>
-<table>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $id = $_POST["id"];
+            $question = $_POST["question"];
+            $choice1 = $_POST["choice1"];
+            $choice2 = $_POST["choice2"];
+            $choice3 = $_POST["choice3"];
+            $choice4 = $_POST["choice4"];
+            $answer = $_POST["answer"];
+            $option = $_POST["option"];
+            
+            if ($option == "save") {
+                //"SELECT `Indicate`, `Exam`, `Choice1`, `Choice2`, `Choice3`, `Choice4`, `Answer` FROM Teacher_Content;";
+
+                $conn->query("UPDATE Teacher_Content SET Exam='".$question."', Choice1='".$choice1."', Choice2='".$choice2."', Choice3='".$choice3."', Choice4='".$choice4."' WHERE Indicate=".$id.";");
+                $ans = "";
+                
+                     if ($answer == "1") { $ans = $choice1; }
+                else if ($answer == "2") { $ans = $choice2; }
+                else if ($answer == "3") { $ans = $choice3; }
+                else if ($answer == "4") { $ans = $choice4; }
+
+                $conn->query("UPDATE Teacher_Content SET Answer='".$ans."' WHERE Indicate=".$id.";");
+
+            } else if ($option == "reset") {
+                $default = $conn->query("SELECT `Indicate`, `Exam`, `Choice1`, `Choice2`, `Choice3`, `Choice4`, `Answer` FROM Admin_Content;")->fetch_assoc();
+                $def_qu = $default["Exam"];
+                $def_c1 = $default["Choice1"];
+                $def_c2 = $default["Choice2"];
+                $def_c3 = $default["Choice3"];
+                $def_c4 = $default["Choice4"];
+                $def_an = $default["Answer"];
+
+                $conn->query("UPDATE Teacher_Content SET " .
+                                "Exam='" .$def_qu. "', " .
+                                "Choice1='" .$def_c1. "', " .
+                                "Choice2='" .$def_c2. "', " .
+                                "Choice3='" .$def_c3. "', " .
+                                "Choice4='" .$def_c4. "', " . 
+                                "Answer='" .$def_an. "' " .
+                                "WHERE Indicate=".$id.";");
+            }
+            
+            header("Location: Content.php");
+            exit;
+        }
+        ?>
+
+    <h2><a href="Home.php"><span class="material-symbols-outlined">arrow_back</span></a>Manage Content</h2>
+    <table>
     <thead>
         <tr>
             <th class="indi" style="width: 10px;">Index</th>
-            <th class="ques" style="width: ;">Questions</th>
+            <th class="ques">Questions</th>
             <th>Choice 1</th>
             <th>Choice 2</th>
             <th>Choice 3</th>
@@ -50,24 +100,26 @@ if ($conn->connect_error) {
                 $choice4 = $row["Choice4"];
                 $answer = $row["Answer"];
                 echo "<tr>".
-                     "<td>". "<form method='POST' action='' id='form-".htmlspecialchars($id)."' style='visibility:hidden; position:absolute'></form>" . "<input type='text' name='id' value='". htmlspecialchars($id) ."' readonly>" ."</td>" .
-                     "<td>". "<input type='text' placeholder='Insert Question' name='question' required form='form-".htmlspecialchars($id)."' value='". $question ."'></td>".
+                     "<td>". "<form method='POST' action='' id='form-".htmlspecialchars($id)."' style='visibility:hidden; position:absolute'></form>" . "<input type='text' name='id' value='". htmlspecialchars($id) ."' form='form-". htmlspecialchars($id) ."' readonly>" ."</td>" .
+                     "<td>". "<input type='text' placeholder='Insert Question' name='question' required form='form-".htmlspecialchars($id)."' value='".$question."'></td>".
                      "<td>". "<input type='text' placeholder='Insert 1st Choice' name='choice1' required form='form-".htmlspecialchars($id)."' value='".$choice1 . "'>"."</td>".
                      "<td>". "<input type='text' placeholder='Insert 2nd Choice' name='choice2' required form='form-".htmlspecialchars($id)."' value='".$choice2 . "'>"."</td>".
                      "<td>". "<input type='text' placeholder='Insert 3rd Choice' name='choice3' required form='form-".htmlspecialchars($id)."' value='".$choice3 . "'>"."</td>".
                      "<td>". "<input type='text' placeholder='Insert 4th Choice' name='choice4' required form='form-".htmlspecialchars($id)."' value='".$choice4 . "'>"."</td>".
-                     "<td><select name='answer'>".
-                        "<option value='1'>Choice 1</option>" . 
-                        "<option value='2'>Choice 2</option>" . 
-                        "<option value='3'>Choice 3</option>" . 
-                        "<option value='4'>Choice 4</option>" . 
+                     "<td><select name='answer' form='form-".htmlspecialchars($id)."'>".
+                        ($choice1 == $answer ? "<option value='1' selected form='form-".htmlspecialchars($id)."'>Choice 1</option>" : "<option value='1' form='form-".htmlspecialchars($id)."'>Choice 1</option>") . 
+                        ($choice2 == $answer ? "<option value='2' selected form='form-".htmlspecialchars($id)."'>Choice 2</option>" : "<option value='2' form='form-".htmlspecialchars($id)."'>Choice 2</option>") . 
+                        ($choice3 == $answer ? "<option value='3' selected form='form-".htmlspecialchars($id)."'>Choice 3</option>" : "<option value='3' form='form-".htmlspecialchars($id)."'>Choice 3</option>") . 
+                        ($choice4 == $answer ? "<option value='4' selected form='form-".htmlspecialchars($id)."'>Choice 4</option>" : "<option value='4' form='form-".htmlspecialchars($id)."'>Choice 4</option>") . 
                         "</select></td>" .
-                     "<td>" . "<button type='submit' value='reset'>reset</button>" . "<button type='submit' value='save'>Save</button></td>" .
+                     "<td>" ."<button type='submit' value='save' name='option' form='form-". htmlspecialchars($id) ."'>Save</button>"."<button type='submit' value='reset' name='option' form='form-".htmlspecialchars($id)."'>reset</button></td>".
                      "</tr>";
             }
         ?>
-        
 
+        
+        
+        <!--
         <tr>
             <td>
                 <form method="POST" id="form-1" action=""></form>
@@ -81,19 +133,7 @@ if ($conn->connect_error) {
             <td><input type="text" placeholder="Insert answer" name="answer"></td>
             <td><button type="button">save</button>
             
-        </tr>
-            <!--
-            <form>
-                <td>1</td>
-                <td><input type="text" placeholder="Insert question" name="question" required></td>
-                <td><input type="text" placeholder="Insert 1st choice" name="choice1" required></td>
-                <td><input type="text" placeholder="Insert 2nd choice" name="choice2" required></td>
-                <td><input type="text" placeholder="Insert 3rd choice" name="choice3" required></td>
-                <td><input type="text" placeholder="Insert 4th choice" name="choice4" required></td>
-                <td><input type="text" placeholder="Insert answer" name="answer"></td>
-                <td><button type="button">save</button>
-                <button type="button">reset</button></td>
-            </form>-->
+        </tr>-->
         
     </tbody>
 </table>

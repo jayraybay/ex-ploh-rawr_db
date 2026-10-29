@@ -1,105 +1,110 @@
 <!DOCTYPE HTML>
 <html>
-<link rel="stylesheet" href="content_reset.css" />
 
-<table>
+        <link rel="stylesheet" type="text/css" href="../common.css"/>
+        <link rel="stylesheet" href="../Home.css" />
+        <link rel="stylesheet" href="Content_reset.css" />
+
+    <body>
+        <header>
+            <a href="#default" class="logo"><img src="tANA0h-1717114438.png" alt="dmfc"><span>Divine Mercy College Foundation Inc.</span></a>
+        </header>
+
+
+    <main>
+                    <!-- <form>
+                <td><input type="text" placeholder="Insert question" name="question"></td>
+                <td><input type="text" placeholder="Insert 1st choice" name="choice1"></td>
+                <td><input type="text" placeholder="Insert 2nd choice" name="choice2"></td>
+                <td><input type="text" placeholder="Insert 3rd choice" name="choice3"></td>
+                <td><input type="text" placeholder="Insert 4th choice" name="choice4"></td>
+                <td><input type="text" placeholder="Insert answer" name="answer"></td>
+                <td><button type="button">Set default</button>
+            </form> -->
+<table name="primaryTable" id="primaryTable">
     <thead>
         <tr>
-            <th class="sel"></th>
+            <th>Index</th>
             <th class="ques">Questions</th>
-            <th class="choice">Choices</th>
-            <th class="ans">Answers</th>
+            <th>Choice 1</th>
+            <th>Choice 2</th>
+            <th>Choice 3</th>
+            <th>Choice 4</th>
+            <th>Answer</th>
+            <th>Options</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="tBody">
         <tr>
-            <td><button type="button" />reset</td>
-            <td>Question#1</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <te>
-            <td><button type="button" />reset</td>
-            <td>Question#1</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-        </te>
-    </tbody>
-    <tbody>
-        <tr>
-            <td><button type="button" />reset</td>
-            <td>Question#1</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td><button type="button" />reset</td>
-            <td>Question#1</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td><button type="button" />reset</td>
-            <td>Question#1</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td><button type="button" />reset</td>
-            <td>Question#1</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td><button type="button" />reset</td>
-            <td>Question#1</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td><button type="button" />reset</td>
-            <td>Question#1</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-        </tr>
+            <td>
+                <form id="form-1" method="POST" action="/submit/form-1"></form>
+                <input type="text" placeholder="Index here" name="index" form="form-1" style="text-align: center;" readonly value="1">
+            </td>
+                <td><input type="text" placeholder="Insert question" name="question" form="form-1"></td>
+                <td><input type="text" placeholder="Insert 1st choice" name="choice1" form="form-1"></td>
+                <td><input type="text" placeholder="Insert 2nd choice" name="choice2" form="form-1"></td>
+                <td><input type="text" placeholder="Insert 3rd choice" name="choice3" form="form-1"></td>
+                <td><input type="text" placeholder="Insert 4th choice" name="choice4" form="form-1"></td>
+                <td><input type="text" placeholder="Insert answer" name="answer" form="form-1"></td>
+                <td><button type="button" form="form-1">Set default</button>
+                </tr>
     </tbody>
 </table>
-<form action="/action_page.php">
-    <select name="Sec">
-        <option value="sec1">Activity</option>
-        <option value="sec2">Quiz</option>
-        <option value="sec3">Exam</option>
-        <option value="sec4">Puzzle</option>
-    </select>
-    <br><br>
-</form>
-<div class="search">
-    <input type="text" placeholder="Please enter name" required />
-</div>
-
+<button type="button" onclick="addNewQuestion()">Add new question</button>
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const rows = document.querySelectorAll("tr[data-href]");
+    var mainTable = document.getElementById("primaryTable");
+//     function addNewQuestion(){
+//         var newRow = mainTable.insertRow();
+//         var ind = newRow.insertCell(0);
+//         var q = newRow.insertCell(1);
+//         var c1 = newRow.insertCell(2);
+//         var c2 = newRow.insertCell(3);
+//         var c3 = newRow.insertCell(4);
+//         var c4 = newRow.insertCell(5);
+//         var a = newRow.insertCell(6);
+//         var but = newRow.insertCell(7);
 
-        rows.forEach(row => {
-            row.addEventListener("click", () => {
-                window.location.href = row.dataset.href;
-            });
-        });
-    });
+//         var num = mainTable.rows.length-1;
+//         var formId = "form-"+num;
+//         console.log(formId);
+        
+
+//         var form = document.createElement("form");
+//         form.setAttribute("id", formId); 
+//         form.setAttribute("method", "POST"); 
+//         form.setAttribute("action", "/submit/"+formId); 
+
+//         var indexForm = document.createElement("Input")
+//         indexForm.setAttribute("type", "text");
+//         indexForm.setAttribute("placeholder", "Index here");
+//         indexForm.setAttribute("name", "index");
+//         indexForm.setAttribute("form", formId);
+//         indexForm.setAttribute("value", mainTable.rows.length-1)
+//         form.append(indexForm);
+
+
+// ind.innerHTML =
+// q.innerHTML = "hi";
+// c1.innerHTML = "hi";
+// c2.innerHTML = "hi";
+// c3.innerHTML = "hi";
+// c4.innerHTML = "hi";
+// a.innerHTML = "hi";
+// but.innerHTML = "hi";
+// }    
+function addNewQuestion1() {    
+document.getElementById("primaryTable").insertRow(-1).innerHTML = '<tr><td><textarea name="Question" placeholder="Question" th:field="${questionAnswerSet.question}" id="question" style = "resize: none; width:100%;"></textarea></td><td><textarea name="Answer" placeholder ="Answer" th: field="${questionAnswerSet.answer}" id="answer" style="resize:none;width: 100%;"></textarea></td ></tr>';
+}
+
+function addNewQuestion() {
+    var num = mainTable.rows.length;
+    var formId = "form-"+num;
+    document.getElementById("primaryTable").insertRow().innerHTML = '<tr><td><form id="'+formId+'" method="POST" action="/submit/'+formId+'"></form><input type="text" placeholder="Index here" name="index" form="'+formId+'" style="text-align: center;" readonly value="'+num+'"></td><td><input type="text" placeholder="Insert question" name="question" form='+formId+'></td><td><input type="text" placeholder="Insert 1st choice" name="choice1" form="'+formId+'"></td><td><input type="text" placeholder="Insert 2nd choice" name="choice2" form="'+formId+'"></td><td><input type="text" placeholder="Insert 3rd choice" name="choice3" form="'+formId+'"></td><td><input type="text" placeholder="Insert 4th choice" name="choice4" form="'+formId+'"></td><td><input type="text" placeholder="Insert answer" name="answer" form="'+formId+'"></td><td><button type="button" form="'+formId+'">Set default</button></tr>';
+}
 </script>
+</main>
 
 
+
+</body>
 </html>

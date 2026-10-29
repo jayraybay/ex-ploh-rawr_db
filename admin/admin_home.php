@@ -31,7 +31,7 @@ $retrieve_teachers = $conn->query("SELECT * FROM Teacher;");
         <li><a href="admin_home.html" class="nav-link">Home</a></li>
         <li><a href="default_content.html" class="nav-link">Manage Students</a></li>
         <li><a href="teacher_acc.html" class="nav-link">Manage Teachers</a></li>
-        <li><a href="student_acc.html" class="nav-link">Manage Content</a></li>
+        <li><a href="content_reset.php" class="nav-link">Manage Content</a></li>
         <li><a href="admin_home.html" class="nav-link">Account</a></li>
     </ul>
 </nav>
