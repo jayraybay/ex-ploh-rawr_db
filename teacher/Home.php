@@ -35,7 +35,7 @@ $retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery AS
 <nav>
     <ul class="nav-link">
         <li><a href="admin_home.html" class="nav-link">Home</a></li>
-        <li><a href="teacher_acc.html" class="nav-link">Content</a></li>
+        <li><a href="Content.php" class="nav-link">Content</a></li>
         <li><a href="student_acc.html" class="nav-link">Account</a></li>
         <li><a href="teacherProfile.html" class="nav-link">Settings</a></li>
     </ul>
@@ -44,13 +44,12 @@ $retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery AS
     <h2>Dashboard</h2>
     <div class="dashboard">
         <button onclick="DashboardPrev()"><span class="material-symbols-outlined">chevron_left</span></button>
-
+        
         <!-- Average Mastery of each section -->
         <div class="content">
-
             <section id="section_mastery" class="section_mastery">
                 <h2>Section Mastery</h2>
-                <p>Average Mastery of each section</p>    
+                <p>Average Mastery of each section</p>
                 <br/>
 
                 <?php
@@ -106,7 +105,7 @@ $retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery AS
             <option value="sec1">Grade 12 - Trustworthy (ICT)</option>
         </select>
         <input type="text" placeholder="Please enter name" required name="searchStudent" />
-    </form> 
+    </form>
     
     <table>
         <thead>
@@ -127,7 +126,7 @@ $retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery AS
                     echo "<td>" . htmlspecialchars($row["PlayerName"]) . "</td>";
                     echo "<td>" . htmlspecialchars($row["Progress"]) . "</td>";
                     echo "<td>" . htmlspecialchars($row["Mastery"]) . "</td>";
-                    echo "<td><a href=\"student_acc.php?id=\"". htmlspecialchars($row["ID"]) . "\">View</a></td>";
+                    echo "<td><a href=\"Students.php?id=" . htmlspecialchars($row["ID"]) . "\">View</a></td>";
                     echo "</tr>";
                 }
             } else {

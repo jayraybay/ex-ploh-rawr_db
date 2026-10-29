@@ -1,213 +1,102 @@
-<!DOCTYPE html>
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="nav_files/nav_ZZMT.css">
-<link href="nav_files/boxicons.min_ZZMT.css" rel="stylesheet">
-<link rel="stylesheet" href="Content.css"/>
+<?php
+session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "divinedb";
 
-</head><body style="height: 491.8px;"><div class="header">
-    <a href="#default" class="logo"><img src="tANA0h-1717114438.png" alt="dmfc">Divine Mercy College Foundation Inc.</a>
-</div>
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("". $conn->connect_error);
+}
 
+?>
 
-     <div class="thirty-sixty">
-        <nav>
-        <ul class="nav-link">
-            <li><a href="home.php" class="nav-link" target="_Home">Home</a></li>
-            <li><a href="Content.php" target="_Home">Content</a></li>
-            <li><a href="teacherProfile.php" class="nav-link" target="_Home">Profile</a></li>
-        </ul">
-        </nav>
+<!DOCTYPE HTML>
+<html>
+
+        <link rel="stylesheet" type="text/css" href="../common.css"/>
+        <link rel="stylesheet" href="Home.css" />
+        <link rel="stylesheet" href="Content.css" />
+
+    <body>
+        <header>
+            <a href="#default" class="logo"><img src="tANA0h-1717114438.png" alt="dmfc"><span>Divine Mercy College Foundation Inc.</span></a>
+        </header>
+
     <main>
-    <table>
+<table>
     <thead>
         <tr>
-            <th class="sel"></th>
-            <th class="ques">Questions</th>
-            <th class="Tags">Tags</th>
-            <th class="ans">Answers</th>
+            <th class="indi" style="width: 10px;">Index</th>
+            <th class="ques" style="width: ;">Questions</th>
+            <th>Choice 1</th>
+            <th>Choice 2</th>
+            <th>Choice 3</th>
+            <th>Choice 4</th>
+            <th>Answer</th>
+            <th>Options</th>
         </tr>
     </thead>
     <tbody id="tBody">
+        <?php
+            $retrieve_questions = $conn->query("SELECT `Indicate`, `Exam`, `Choice1`, `Choice2`, `Choice3`, `Choice4`, `Answer` FROM Teacher_Content;");
+            while ($row = $retrieve_questions->fetch_assoc()) {
+                $id = $row["Indicate"];
+                $question = $row["Exam"];
+                $choice1 = $row["Choice1"];
+                $choice2 = $row["Choice2"];
+                $choice3 = $row["Choice3"];
+                $choice4 = $row["Choice4"];
+                $answer = $row["Answer"];
+                echo "<tr>".
+                     "<td>". "<form method='POST' action='' id='form-".htmlspecialchars($id)."' style='visibility:hidden; position:absolute'></form>" . "<input type='text' name='id' value='". htmlspecialchars($id) ."' readonly>" ."</td>" .
+                     "<td>". "<input type='text' placeholder='Insert Question' name='question' required form='form-".htmlspecialchars($id)."' value='". $question ."'></td>".
+                     "<td>". "<input type='text' placeholder='Insert 1st Choice' name='choice1' required form='form-".htmlspecialchars($id)."' value='".$choice1 . "'>"."</td>".
+                     "<td>". "<input type='text' placeholder='Insert 2nd Choice' name='choice2' required form='form-".htmlspecialchars($id)."' value='".$choice2 . "'>"."</td>".
+                     "<td>". "<input type='text' placeholder='Insert 3rd Choice' name='choice3' required form='form-".htmlspecialchars($id)."' value='".$choice3 . "'>"."</td>".
+                     "<td>". "<input type='text' placeholder='Insert 4th Choice' name='choice4' required form='form-".htmlspecialchars($id)."' value='".$choice4 . "'>"."</td>".
+                     "<td><select name='answer'>".
+                        "<option value='1'>Choice 1</option>" . 
+                        "<option value='2'>Choice 2</option>" . 
+                        "<option value='3'>Choice 3</option>" . 
+                        "<option value='4'>Choice 4</option>" . 
+                        "</select></td>" .
+                     "<td>" . "<button type='submit' value='reset'>reset</button>" . "<button type='submit' value='save'>Save</button></td>" .
+                     "</tr>";
+            }
+        ?>
+        
+
         <tr>
-            <td><input type="checkbox" /></td>
-            <td>Question#1</td>
-            <td>Tag</td>
-            <td>Answer#1</td>
+            <td>
+                <form method="POST" id="form-1" action=""></form>
+                <input type="text" name="id">
+            </td>
+            <td><input type="text" placeholder="Insert question" name="question"  required form="form-1"></td>
+            <td><input type="text" placeholder="Insert 1st choice" name="choice1" required form="form-1"></td>
+            <td><input type="text" placeholder="Insert 2nd choice" name="choice2" required form="form-1"></td>
+            <td><input type="text" placeholder="Insert 3rd choice" name="choice3" required form="form-1"></td>
+            <td><input type="text" placeholder="Insert 4th choice" name="choice4" required form="form-1"></td>
+            <td><input type="text" placeholder="Insert answer" name="answer"></td>
+            <td><button type="button">save</button>
+            
         </tr>
-    </tbody>
-    <tbody id="tBody">
-        <tr>
-            <td><input type="checkbox" /></td>
-            <td>Question#1</td>
-            <td>Tag</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody id="tBody">
-        <tr>
-            <td><input type="checkbox" /></td>
-            <td>Question#1</td>
-            <td>Tag</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody id="tBody">
-        <tr>
-            <td><input type="checkbox" /></td>
-            <td>Question#1</td>
-            <td>Tag</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody id="tBody">
-        <tr>
-            <td><input type="checkbox" /></td>
-            <td>Question#1</td>
-            <td>Tag</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody id="tBody">
-        <tr>
-            <td><input type="checkbox" /></td>
-            <td>Question#1</td>
-            <td>Tag</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody id="tBody">
-        <tr>
-            <td><input type="checkbox" /></td>
-            <td>Question#1</td>
-            <td>Tag</td>
-            <td>Answer#1</td>
-        </tr>
-    </tbody>
-    <tbody id="tBody">
-        <tr>
-            <td><input type="checkbox" /></td>
-            <td>Question#1</td>
-            <td>Tag</td>
-            <td>Answer#1</td>
-        </tr>
+            <!--
+            <form>
+                <td>1</td>
+                <td><input type="text" placeholder="Insert question" name="question" required></td>
+                <td><input type="text" placeholder="Insert 1st choice" name="choice1" required></td>
+                <td><input type="text" placeholder="Insert 2nd choice" name="choice2" required></td>
+                <td><input type="text" placeholder="Insert 3rd choice" name="choice3" required></td>
+                <td><input type="text" placeholder="Insert 4th choice" name="choice4" required></td>
+                <td><input type="text" placeholder="Insert answer" name="answer"></td>
+                <td><button type="button">save</button>
+                <button type="button">reset</button></td>
+            </form>-->
+        
     </tbody>
 </table>
-<form action="/action_page.php">
-    <select name="Sec" id="conSel">
-        <option value="sec1">Activity</option>
-        <option value="sec2">Quiz</option>
-        <option value="sec3">Exam</option>
-    </select>
-    <br><br>
-</form>
-<div class="search">
-    <input type="text" placeholder="Please enter name" required />
-</div>
-
-<div class="edit">
-    <button id="openPromptBtn">Edit Content</button>
-</div>
-
-<dialog id="multiPrompt">
-    <form method="dialog" id="promptForm" name="edtbtn">
-        <h3>Enter Details</h3>
-
-        <label for="ques">Question:</label>
-        <input type="text" id="question" required><br><br>
-
-        <label for="choose">Choice:</label>
-        <input type="text" id="choice" required><br><br>
-
-        <label for="ans">Answer:</label>
-        <input type="text" id="answer" required><br><br>
-
-        <button type="button" id="cancelBtn">Cancel</button>
-        <button type="submit" id="submitBtn">Submit</button>
-    </form>
-</dialog>
 </main>
-<body>
-    <script>
-            const dialog = document.getElementById('multiPrompt');
-            const openBtn = document.getElementById('openPromptBtn');
-            const cancelBtn = document.getElementById('cancelBtn');
-            const form = document.getElementById('promptForm');
-
-// Show the custom prompt
-openBtn.addEventListener('click', () => {
-          form.reset(); // Clear old values
-          dialog.showModal();
-});
-
-// Close prompt if cancelled
-cancelBtn.addEventListener('click', () => {
-          dialog.close();
-});
-
-// Handle data submission
-form.addEventListener('submit', (e) => {
-          e.preventDefault(); // Prevent page reload
-
-          const firstName = document.getElementById('firstName').value;
-          const lastName = document.getElementById('lastName').value;
-
-          console.log("First Name:", firstName);
-          console.log("Last Name:", lastName);
-
-          dialog.close();
-});
-    </script>
-</body>
-
-<script>
-        const conSel = document.getElementById('conSel');
-        const tBody = document.getElementById('tBody');
-
-        conSel.addEventListener('change', function() {
-        const conSel = this.value;
-
-      // Clear existing rows
-      tBody.innerHTML = '';
-
-      if (conSel === 'sec1') {
-        tBody.innerHTML = `
-        <tr>
-            <td><input type="checkbox" /></td>
-            <td>Activity#1</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" /></td>
-            <td>Activity#2</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-        </tr>
-        `;
-
-      }else if (conSel === 'sec2') {
-      tBody.innerHTML = `
-        <tr>
-            <td><input type="checkbox" /></td>
-            <td>Quiz#1</td>
-            <td>Choice#1</td>
-            <td>Answer#1</td>
-      </tr>
-      `;
-       }else if (conSel === 'sec3') {
-      tBody.innerHTML = `
-        <tr>
-          <td><input type="checkbox" /></td>
-          <td>Exam#1</td>
-          <td>Choice#1</td>
-          <td>Answer#1</td>
-      </tr>
-      `;
-      }
-});
-</script>
-
-
 </body>
 </html>

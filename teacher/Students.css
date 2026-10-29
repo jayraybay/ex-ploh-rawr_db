@@ -9,42 +9,24 @@
 h1 {
     padding: 4px 0px 0px 32px;
 }
-
 .profile img {
-    float: right;
+    float:right;
     position: relative;
     bottom: 10px;
     right: 80px;
     height: 250px;
     border: 1px solid black;
+    overflow: hidden;
 }
 
 .name p {
     position: relative;
-    top: 50px;
     padding: 0px 0px 12px 80px;
     font-size: 32px;
     width: 15%;
+    text-align: left;
     /* border: 1px solid black;
     border-radius: 25px; */
-}
-
-.sec p {
-    position: relative;
-    padding: 12px 0px 0px 80px;
-    font-size: 24px;
-    top: 25px;
-    width: 15%;
-    /* border: 1px solid black;
-    border-radius: 25px; */
-}
-
-.creds p {
-    position: relative;
-    top: 100px;
-    padding: 0px 0px 0px 80px;
-    font-weight: bold;
-    font-size: 24px;
 }
 
 .date p {
@@ -58,6 +40,7 @@ h1 {
     position: relative;
     font-size: 50px;
     float:right;
+    text-align: center;
     width:50%;
     height: 0px;
     margin-bottom: 0px;
@@ -65,15 +48,13 @@ h1 {
 
 .entry p {
     position: relative;
-    top: 80px;
+    text-align: left;
     padding: 0px 0px 0px 80px;
     font-size: 24px;
-    
 }
 
 .entryLineToReplace p{
     color:gray;
-    top: 60px;
 }
 
 table {
@@ -91,6 +72,7 @@ th {
     background-color: salmon;
     border: 1px salmon;
 }
+
 
 select{
     position: fixed;

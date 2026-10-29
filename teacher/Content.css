@@ -6,13 +6,11 @@
 * {
     font-family: myFont;
 }
-
 table {
-    position: fixed;
-    right:0;
+    float: right;
     height: 100px;
-    top: 180px;
-    width: 80%;
+    top: 50px;
+    width: 100%;
     overflow: auto;
 }
 
@@ -21,49 +19,36 @@ th {
     border: 1px salmon;
 }
 
-.sel {
+.indi {
     width: 10%;
 }
-
 .ques {
-    width: 30%;
-}
-
-.choice {
-    width: 30%;
-}
-
-.ans {
     width: 30%;
 }
 
 td {
     border-bottom: 1px solid #ddd;
     height: 50px;
-    text-align: center;
+    text-align:center;
 }
 
-select {
-    position: fixed;
-    top: 150px;
-    right: 320px;
-    width: 20%;
+
+table form {
+    display: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 0px;
 }
 
-.search input {
-    position: fixed;
-    top: 150px;
-    left: 320px;
-    width: 35%;
+
+table input {
+    width: 90%;
 }
 
-.edit button {
-    position: fixed;
-    top: 150px;
-    right: 0px;
-    width: 20%;
+table select {
+    width: 100%;
 }
 
-dialog edtbtn {
-    background-color: salmon;
+table select option {
+    width: 100%;
 }
