@@ -11,12 +11,12 @@
     <div class="thirty-sixty">
         <nav>
         <ul class="nav-link">
-            <li><a href="admin_home.php" class="nav-link" target="_Home">Home</a></li>
-            <li><a href="default_content.php" target="_Home">Content</a></li>
-            <li><a href="teacher_acc.php" class="nav-link" target="_Home">Manage Teacher</a></li>
-            <li><a href="student_acc.php" class="nav-link" target="_Home">Manage Student</a></li>
-            <li><a href="admin_profile.php" class="nav-link" target="_Home">Profile</a></li>
-        </ul">
+             <li><a href="admin_home.php" class="nav-link">Home</a></li>
+             <li><a href="student_acc.php" class="nav-link">Manage Students</a></li>
+             <li><a href="teacher_acc.php" class="nav-link">Manage Teachers</a></li>
+             <li><a href="content_reset.php" class="nav-link">Manage Content</a></li>
+             <li><a href="admin_profile.php" class="nav-link">Account</a></li>
+        </ul>
         </nav>
     <main>
             <table>

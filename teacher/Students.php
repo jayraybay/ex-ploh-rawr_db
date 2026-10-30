@@ -50,7 +50,7 @@ $data = $retrieve_student->fetch_assoc();
         <p><strong>Credentials</strong></p> 
                 <div class="mastery">
             <p>Mastery: </p>
-            <?php echo "<p>" .  number_format(htmlspecialchars($data["Mastery"]), 2) . "</p>"; ?>
+            <?php echo "<p>" .  ($data["Mastery"]==null?"-":number_format(htmlspecialchars($data["Mastery"]), 2)) . "</p>"; ?>
         </div>
         <p>Full name: </p>
         <div class="entryLineToReplace">
@@ -78,13 +78,13 @@ $data = $retrieve_student->fetch_assoc();
         <tbody>
             <tr>
                 <td>Chapter 1</td>
-                <td>10/10</td>
-                <td>10/10</td>
+                <td>15/15</td>
+                <td>15/15</td>
             </tr>
             <tr>
                 <td>Chapter 2</td>
-                <td>10/10</td>
-                <td>10/10</td>
+                <td>20/20</td>
+                <td>20/20</td>
             </tr>
         </tbody>
     </table>

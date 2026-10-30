@@ -28,11 +28,11 @@ $retrieve_teachers = $conn->query("SELECT * FROM Teacher;");
 <div class="thirty-sixty">
 <nav>
     <ul class="nav-link">
-        <li><a href="admin_home.html" class="nav-link">Home</a></li>
-        <li><a href="default_content.html" class="nav-link">Manage Students</a></li>
-        <li><a href="teacher_acc.html" class="nav-link">Manage Teachers</a></li>
+        <li><a href="admin_home.php" class="nav-link">Home</a></li>
+        <li><a href="student_acc.php" class="nav-link">Manage Students</a></li>
+        <li><a href="teacher_acc.php" class="nav-link">Manage Teachers</a></li>
         <li><a href="content_reset.php" class="nav-link">Manage Content</a></li>
-        <li><a href="admin_home.html" class="nav-link">Account</a></li>
+        <li><a href="admin_profile.php" class="nav-link">Account</a></li>
     </ul>
 </nav>
 <main>

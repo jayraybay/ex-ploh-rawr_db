@@ -7,59 +7,69 @@
     font-family: myFont;
 }
 
-h1 {
-    padding: 4px 0px 0px 32px;
-    position: fixed;
-    top: 150px;
+h1{
+    padding: 4px 0px 0px 32px;  
 }
 
-img {
-    right: 0;
-    position: fixed;
-    top: 200px;
+img{
+    float: right;
+    position:relative;
+    bottom: 50px;
     right: 80px;
     height: 250px;
+    border: 1px solid black;
 }
 
 .name p {
-    position: fixed;
-    top: 230px;
-    left: 400px;
-    padding: 0px 70px 0px 0px;
+    position: relative;
+    padding: 0px 0px 12px 80px;
     font-size: 32px;
-    width: 25%;
-    border-radius: 25px;
+    width: 15%;
     text-align: left;
+    /* border: 1px solid black;
+    border-radius: 25px; */
 }
 
 .occ p {
-    position: fixed;
+    position: relative;
     padding: 0px 0px 0px 80px;
     font-size: 24px;
-    top: 280px;
+    top: 25px;
     border-radius: 25px;
 }
 
-.creds p {
-    position: fixed;
-    top: 340px;
-    padding: 0px 0px 0px 60px;
+.creds p{
+    position: relative;
+    top: 100px;
+    padding: 0px 0px 0px 80px;
     font-weight: bold;
     font-size: 24px;
 }
 
 .date p {
-    position: fixed;
-    bottom: 400px;
+    position: relative;
+    top: 80px;
     padding: 0px 0px 0px 80px;
     font-size: 24px;
 }
 
 button {
-    position: fixed;
-    left: 400px;
-    bottom: 350px;
+    display: inline;
+    position:inherit;
+    left: 100px;
+    top: 70px;
     width: 20%;
     height: 30px;
     background-color: salmon;
 }
+
+.entry {
+    position: relative;
+    text-align: left;
+    padding: 0px 0px 0px 80px;
+    font-size: 24px;
+}
+
+.entryLineToReplace p{
+    color:gray;
+} 

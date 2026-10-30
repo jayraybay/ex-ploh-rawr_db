@@ -101,6 +101,21 @@ if ($conn->connect_error) {
                                                                                 "0," .
                                                                                 "'" . date('Y-m-d') . "'" .
                                                                                 ");");
+
+                            $new = $conn->query("INSERT INTO Records VALUES (" .
+                                                    "'" . $id . "'," .
+                                                    "NULL,". // Chapter1_Pre
+                                                    "NULL,". // Chapter1_Post
+                                                    "NULL,". // Chapter2_Pre
+                                                    "NULL,". // Chapter2_Post
+                                                    "NULL,". // Chapter1_RE1
+                                                    "NULL,". // Chapter1_RE2
+                                                    "NULL,". // Chapter1_RE3
+                                                    "NULL,". // Chapter2_RE1
+                                                    "NULL,". // Chapter2_RE2
+                                                    "NULL,". // Chapter2_RE3
+                                                    "NULL". // Chapter2_RE4
+                                               ");");
                             echo "<div id=\"err_msg\">Student " . htmlspecialchars($id) . " registered</div>";
                         }
                     }

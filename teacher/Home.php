@@ -34,9 +34,9 @@ $retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery AS
 <div class="thirty-sixty">
 <nav>
     <ul class="nav-link">
-        <li><a href="admin_home.html" class="nav-link">Home</a></li>
+        <li><a href="Home.php" class="nav-link">Home</a></li>
         <li><a href="Content.php" class="nav-link">Content</a></li>
-        <li><a href="student_acc.html" class="nav-link">Account</a></li>
+        <li><a href="teacherProfile.php" class="nav-link">Account</a></li>
         <li><a href="teacherProfile.html" class="nav-link">Settings</a></li>
     </ul>
 </nav>
