@@ -14,8 +14,11 @@ if ($conn->connect_error) {
 
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="Login_teacher.css"> 
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<head>
+    <link rel="stylesheet" href="Login_teacher.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back" />
+</head>
 
 <div class="header">
     <a href="../index.html" class="logo"><img src="tANA0h-1717114438.png" alt="dmfc">Divine Mercy College Foundation Inc.</a>
@@ -23,7 +26,7 @@ if ($conn->connect_error) {
 <body>
 
     <div class="wrapper">
-        <h3>Teacher Login</h3>
+        <h3><a href="../index.html"><span class="material-symbols-outlined">arrow_back</span></a> Teacher Login</h3>
         <form action="" method="post">
             <div class="input_box">
                 <input type="text" placeholder="Teacher ID" required name="t_id"/>
@@ -36,7 +39,8 @@ if ($conn->connect_error) {
             <button type="submit" class="btn">Login</button>
         </form>
         <?php
-        $t_id = $t_pwd = "";
+        $t_id = "";
+        $t_pwd = "";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $t_id = $_POST["t_id"];
             $t_pwd = $_POST["t_pwd"];

@@ -32,9 +32,8 @@ $data = $retrieve_student->fetch_assoc();
             <nav>
                 <ul class="nav-link">
                     <li><a href="Home.php" class="nav-link">Home</a></li>
-                    <li><a href="Home.php" class="nav-link">Dashboard</a></li>
-                    <li><a href="teacher_acc.html" class="nav-link">Content</a></li>
-                    <li><a href="student_acc.html" class="nav-link">Account</a></li>
+                    <li><a href="Content.php" class="nav-link">Content</a></li>
+                    <li><a href="teacherProfile.php" class="nav-link">Account</a></li>
                 </ul>
             </nav>
     <main>

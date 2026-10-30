@@ -22,7 +22,7 @@ if ($res_creds->num_rows == 1) {
     //echo "SUCCESS"; // login
     $r = $res_creds->fetch_assoc();
 
-    echo $r["ID"] . "|" . $r["Password"] . "|" . $r["First_Name"] . "|" . $r["Middle_Initials"] . "|" . $r["Last_Name"] . "|" . $r["Section"] . "|" . $p["PlayerName"] . "|" . $p["PlayerGender"];
+    echo $r["ID"] . "|" . $r["Password"] . "|" . $r["First_Name"] . "|" . $r["Middle_Initials"] . "|" . $r["Last_Name"] . "|" . $r["Section"] . "|" . $r["PlayerName"] . "|" . $r["PlayerGender"];
 } else {
     echo "FAIL"; // doesn't exists or wrong password
 }

@@ -1,3 +1,24 @@
+<?php
+session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "divinedb";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("". $conn->connect_error);
+}
+
+$data = "";
+
+$t_ID = $_SESSION['teacher_ID'];
+$t_pwd = $_SESSION['teacher_pwd'];
+$data = $conn->query("SELECT `ID`, `Password`, `First_Name`, `Middle_Initials`, `Last_Name`, `Date_Joined` FROM Teacher WHERE ID='".$t_ID."';")->fetch_assoc();
+
+
+?>
+
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -6,11 +27,11 @@
         <link rel="stylesheet" href="teacherProfile.css" />
     </head>
 
-    <body>
-        <header>
-            <a href="#default" class="logo"><img src="tANA0h-1717114438.png" alt="dmfc"><span>Divine Mercy College Foundation Inc.</span></a>
-        </header>
-        <div class="thirty-sixty">
+<body>
+    <header>
+        <a href="#default" class="logo"><img src="tANA0h-1717114438.png" alt="dmfc"><span>Divine Mercy College Foundation Inc.</span></a>
+    </header>
+    <div class="thirty-sixty">
 <nav>
     <ul class="nav-link">
         <li><a href="Home.php" class="nav-link">Home</a></li>
@@ -18,24 +39,39 @@
         <li><a href="teacherProfile.php" class="nav-link">Account</a></li>
     </ul>
 </nav>
-    <main>
+<main>
     <div class="name">
-        <p>USER1</p>
+        <?php echo  "<p>" . $data["First_Name"] . " " . $data["Middle_Initials"] . " " . $data["Last_Name"] . "</p>"; ?>
     </div>
     <div class="entry" id="entry">
         <p><strong>Credentials</strong></p> 
         <p>Teacher ID: </p>
         <div class="entryLineToReplace">
-            <p>1234567890</p></div>
+            <?php echo "<p>" . $data["ID"] . "</p>"; ?></div>
         <p>Date joined: </p>
         <div class="entryLineToReplace">
-            <p>YYYY/MM/DD</p> 
+            <?php echo "<p>" . $data["Date_Joined"] . "</p>"; ?>
+
+            <form action="" method="POST">
+                <button type="submit" name="logout" value="logout">Log out</button>
+            </form>
         </div>
-            <form>
-            <button type="button" name="logout">Log out</button>
-            <button type="button" name="enableChangePass" onclick="toggleChangePass()" id="togglePass">Change Password</button>
-            </form>  
-    </div>
+            <form action="" method="POST">
+                <button value="change" type="button" name="enableChangePass" onclick="toggleChangePass()" id="togglePass">Change Password</button>
+            </form>
+
+            <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    
+                    if (isset($_POST["logout"])) {
+                        $_SESSION = array();
+                        session_destroy();
+                        header("Location:../index.html");
+                        exit;
+                    }
+                }
+            ?>
+        </div>
 </main>
 </div>
 <script>

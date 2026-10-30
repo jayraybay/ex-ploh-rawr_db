@@ -37,6 +37,7 @@ td {
 
 body {
     overflow: scroll;
+    
 }
 
 
@@ -45,3 +46,43 @@ main form a.btn_create {
     color: black;
     text-decoration: none;
 }
+
+ul {
+    background-image: url(../admin/bg_var4.jpg);
+}
+
+div.dashboard {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 320px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    justify-content: center;
+    margin: 10px;
+    padding: 25px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+b {
+    display: block;
+    width: 100%;
+    font-size: 100px;
+}
+
+section {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+section.students { background-image: url(../img/ic_group.png); }
+section.teachers { background-image: url(../img/ic_user.png); }
+section.questions { background-image: url(../img/ic_book.png); }

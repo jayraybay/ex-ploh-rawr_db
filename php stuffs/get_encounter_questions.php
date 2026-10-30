@@ -30,15 +30,24 @@ try
     $conn->set_charset("utf8mb4");
 
     $stmt = $conn->prepare(
-        "SELECT Indicate, Quiz, Answer
-         FROM content
+        "SELECT Indicate, Exam, Choice1, Choice2, Choice3, Choice4, Answer
+         FROM teacher_content
          WHERE Indicate BETWEEN ? AND ?
          ORDER BY Indicate ASC"
     );
 
     $stmt->bind_param("ii", $first, $last);
     $stmt->execute();
-    $stmt->bind_result($id, $question, $answer);
+    
+    $stmt->bind_result(
+    $id,
+    $question,
+    $choice1,
+    $choice2,
+    $choice3,
+    $choice4,
+    $answer
+);
 
     $questions = [];
 
@@ -46,8 +55,14 @@ try
     {
         $questions[] = [
             "id" => $id,
-            "question" => trim($question),
-            "answer" => trim($answer)
+            "question" => trim((string)$question),
+            "choices" => [
+                trim((string)$choice1),
+                trim((string)$choice2),
+                trim((string)$choice3),
+                trim((string)$choice4)
+            ],
+            "answer" => trim((string)$answer)
         ];
     }
 

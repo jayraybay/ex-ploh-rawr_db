@@ -13,7 +13,8 @@ if ($conn->connect_error) {
 $t_ID = "";
 $t_pwd = "";
 if (isset($_SESSION['teacher_ID'])) { $t_ID = $_SESSION['teacher_ID']; }
-if (isset($_SESSION['teacher_pwd'])) { $t_ID = $_SESSION['teacher_pwd']; }
+if (isset($_SESSION['teacher_pwd'])) { $t_pwd = $_SESSION['teacher_pwd']; }
+
 
 $retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery ASC) AS Rank, ID, PlayerName, Progress, Mastery FROM Student; ");
 ?>
@@ -37,7 +38,6 @@ $retrieve_students = $conn->query("SELECT ROW_NUMBER() OVER (ORDER BY Mastery AS
         <li><a href="Home.php" class="nav-link">Home</a></li>
         <li><a href="Content.php" class="nav-link">Content</a></li>
         <li><a href="teacherProfile.php" class="nav-link">Account</a></li>
-        <li><a href="teacherProfile.html" class="nav-link">Settings</a></li>
     </ul>
 </nav>
 <main>

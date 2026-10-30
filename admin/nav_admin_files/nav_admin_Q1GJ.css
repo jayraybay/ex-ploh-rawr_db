@@ -61,7 +61,7 @@ ul {
     margin: 0;
     padding: 0;
     width: 130px;
-    background-image: url(bg_var4.jpg);
+    background-image: url(../../teacher/bg_var4.jpg);
     height: 90%;
     left: 0;
     top: 110px;
@@ -93,10 +93,6 @@ li a {
     background-color: salmon;
 }
 
-
-body {
-    background-image: url(bg_var4.jpg);
-}
 
 div.thirty-sixty {
     display: flex;
